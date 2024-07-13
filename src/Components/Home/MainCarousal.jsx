@@ -1,25 +1,70 @@
 import React from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel, IconButton } from '@material-tailwind/react';
 
-const MainCarousal = () => {
-    return (
-        <Carousel>
-            <div>
-                <img src="https://t1.pixers.pics/img-d5043af1/posters-futuristic-corridor.png?H4sIAAAAAAAAA5WPTXKDMAyFrwMzEMnGNjYHyDZHYFRbJDSEeGzSpj19zXS6axcdLSQ9_Xzz4LFmmhg8rxsnuM0hLAzTvJQuD4nz_MkVNp3T9VDUpULEeri_cfLpHispm1Z0sjFWNlraenincnijdK0u2xbzAJC7Q5yf5VtJPoO_ZZAoekAL2lny_BJ6J0iOsc0brYFSaHts-6fGQ1zPDe5RDxTj8jEmLuTMIy3xQv9AcOe1E2Nc6Epb-zup_rGrEBu125zuxcpW7TP4g_VdQ1mH4wl0D0aAteDsLo3Hk-6NsNbZEUkZExQq3zme0E6BDAunnBLspDGH13j-Asg9PJyNAQAA" alt="Legend 1" />
-               
-            </div>
-            <div>
-                <img src="https://t1.pixers.pics/img-d5043af1/posters-futuristic-corridor.png?H4sIAAAAAAAAA5WPTXKDMAyFrwMzEMnGNjYHyDZHYFRbJDSEeGzSpj19zXS6axcdLSQ9_Xzz4LFmmhg8rxsnuM0hLAzTvJQuD4nz_MkVNp3T9VDUpULEeri_cfLpHispm1Z0sjFWNlraenincnijdK0u2xbzAJC7Q5yf5VtJPoO_ZZAoekAL2lny_BJ6J0iOsc0brYFSaHts-6fGQ1zPDe5RDxTj8jEmLuTMIy3xQv9AcOe1E2Nc6Epb-zup_rGrEBu125zuxcpW7TP4g_VdQ1mH4wl0D0aAteDsLo3Hk-6NsNbZEUkZExQq3zme0E6BDAunnBLspDGH13j-Asg9PJyNAQAA" alt="Legend 1" />
-               
-            </div>
-            <div>
-                <img src="https://t1.pixers.pics/img-d5043af1/posters-futuristic-corridor.png?H4sIAAAAAAAAA5WPTXKDMAyFrwMzEMnGNjYHyDZHYFRbJDSEeGzSpj19zXS6axcdLSQ9_Xzz4LFmmhg8rxsnuM0hLAzTvJQuD4nz_MkVNp3T9VDUpULEeri_cfLpHispm1Z0sjFWNlraenincnijdK0u2xbzAJC7Q5yf5VtJPoO_ZZAoekAL2lny_BJ6J0iOsc0brYFSaHts-6fGQ1zPDe5RDxTj8jEmLuTMIy3xQv9AcOe1E2Nc6Epb-zup_rGrEBu125zuxcpW7TP4g_VdQ1mH4wl0D0aAteDsLo3Hk-6NsNbZEUkZExQq3zme0E6BDAunnBLspDGH13j-Asg9PJyNAQAA" alt="Legend 1" />
-               
-            </div>
-            
-        </Carousel>
-    );
-}
+const MainCarousel = () => {
+  return (
+    <Carousel
+      className="rounded-xl"
+      prevArrow={({ handlePrev }) => (
+        <IconButton
+          variant="text"
+          color="white"
+          size="lg"
+          onClick={handlePrev}
+          className="!absolute top-2/4 left-4 -translate-y-2/4"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+            />
+          </svg>
+        </IconButton>
+      )}
+      nextArrow={({ handleNext }) => (
+        <IconButton
+          variant="text"
+          color="white"
+          size="lg"
+          onClick={handleNext}
+          className="!absolute top-2/4 !right-4 -translate-y-2/4"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+            />
+          </svg>
+        </IconButton>
+      )}
+    >
+      <div className="h-64 bg-blue-500">
+        <p className="text-white">Slide 1</p>
+      </div>
+      <div className="h-64 bg-red-500">
+        <p className="text-white">Slide 2</p>
+      </div>
+      <div className="h-64 bg-green-500">
+        <p className="text-white">Slide 3</p>
+      </div>
+    </Carousel>
+  );
+};
 
-export default MainCarousal
+export default MainCarousel;
