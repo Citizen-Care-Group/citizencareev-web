@@ -1,9 +1,15 @@
 import './App.css';
+import Footer from './Components/Common/Footer';
+import Navbar from './Components/Common/Navbar';
+import Index from './Components/Home/Index';
+// import TestHome from './Components/Home/TestHome';
 
 function App() {
   return (
     <div className="App">
-      <h1>Citizen Care Group</h1>
+      <Navbar />
+      <Index/>
+      <Footer/>
     </div>
   );
 }
