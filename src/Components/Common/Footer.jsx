@@ -52,7 +52,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-3 text-left">
                   {item?.subLinks?.map((subItem) => {
                     return (
-                      <Link to={subItem?.SubItemNavigation}>
+                      <Link key={subItem} to={subItem?.SubItemNavigation}>
                         {" "}
                         {subItem.subItem}{" "}
                       </Link>
