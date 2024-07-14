@@ -1,4 +1,6 @@
+import linebackground from './src/Images/line background.png';
 const flowbite = require("flowbite-react/tailwind");
+
  
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}",flowbite.content(),],
@@ -10,6 +12,7 @@ module.exports = {
         customGreen: "#32C86E", // Replace with your hex color code
         
       },
+     
     },
   },
   plugins: [flowbite.plugin(),],
