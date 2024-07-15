@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import scooty from "../../Images/Scooty/scooty.png";
 import lineBackground from "../../Images/lineBackground.png";
 import eclips from "../../Images/EllipseSection2.png";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -7,10 +7,7 @@ import { Link } from "react-router-dom";
 
 const Scooter = () => {
   const cards = [
-    {
-      title: "Card 1",
-      content: "This is the content of card 1.",
-    },
+    { pic: scooty, title: "Card 1", content: "This is the content of card 1." },
     {
       title: "Card 2",
       content: "This is the content of card 2.",
@@ -33,9 +30,10 @@ const Scooter = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10">
-      <div className="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
+      <div className="bg-customGrey text-white  p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
+        <img className="text-xl font-bold mb-4" alt=" current pic" src={cards[currentCard].pic} />
         <h2 className="text-xl font-bold mb-4">{cards[currentCard].title}</h2>
-        <p className="text-gray-700">{cards[currentCard].content}</p>
+        <p className="text-white">{cards[currentCard].content}</p>
       </div>
       <div className="flex justify-between mt-4">
         <button
@@ -57,6 +55,7 @@ const Scooter = () => {
 const Bikes = () => {
   const cards = [
     {
+      pic: scooty,
       title: "Bike Card 1",
       content: "This is the content of card 1.",
     },
@@ -83,6 +82,8 @@ const Bikes = () => {
   return (
     <div className="max-w-md mx-auto mt-10">
       <div className="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
+        <img className="text-xl font-bold mb-4" alt=" current pic"  src={cards[currentCard].pic} />
+
         <h2 className="text-xl font-bold mb-4">{cards[currentCard].title}</h2>
         <p className="text-gray-700">{cards[currentCard].content}</p>
       </div>
@@ -104,7 +105,6 @@ const Bikes = () => {
   );
 };
 
-
 const ToggleEVSection2 = () => {
   const [vehicle, setVehicle] = useState("Scooter");
   return (
@@ -112,21 +112,21 @@ const ToggleEVSection2 = () => {
       {/* line background section  */}
       <div
         style={{ backgroundImage: `url(${lineBackground})` }}
-        className={` w-[60%] relative bg-cover bg-no-repeat `}
+        className={` w-[55%] relative bg-cover bg-no-repeat `}
       >
         <img
           className=" w-[90vw] mx-auto  lg:w-[30vw] p-4"
           src={eclips}
           alt=""
         />
-        <div className=" flex items-center justify-center flex-col gap-4  absolute left-[14rem] top-[11rem]">
+        <div className=" flex items-center justify-center flex-col gap-4  absolute left-[12rem] top-[11rem]">
           <h1 className="  text-4xl font-bold w-[60%] ">
             Electrify your life with{" "}
             <span className=" text-customGreen"> Citizen EV!</span>
           </h1>
           <Link
             to="/"
-            className="flex justify-center group items-center gap-4 transition-all duration-200 rounded-md text-white font-bold py-4 bg-customGrey hover:bg-slate-800 w-[15rem]"
+            className="flex justify-center group items-center gap-4 transition-all duration-200 rounded-md text-white font-bold py-4 bg-customGrey hover:bg-slate-800 w-[40%]"
           >
             Browse Products{" "}
             <FaArrowRightLong className=" group-hover:translate-x-4 transition-all duration-300" />{" "}
@@ -134,27 +134,27 @@ const ToggleEVSection2 = () => {
         </div>
       </div>
       {/* toggle ev section  */}
-      <div className=" w-[35%] flex item-center flex-col">
+      <div className=" w-[45%] flex item-center flex-col">
         {/* toggler  */}
-        <div className="flex items-center mx-auto w-[30%] bg-slate-100 rounded-full">
+        <div className="flex items-center mx-auto w-[30%] bg-slate-200 rounded-full">
           <p
             onClick={() => setVehicle("Scooter")}
-            className={`p-2 px-6 rounded-full cursor-pointer transition-all duration-500 ease-in-out 
+            className={`p-2 w-[50%] px-6 rounded-full cursor-pointer transition-all duration-500 ease-in-out 
                     ${
                       vehicle === "Scooter"
                         ? "bg-customGrey text-slate-100"
-                        : "text-customGrey bg-slate-100"
+                        : "text-customGrey bg-slate-200"
                     }`}
           >
             Scooties
           </p>
           <p
             onClick={() => setVehicle("Bikes")}
-            className={`p-2 px-6 rounded-full cursor-pointer transition-all duration-500 ease-in-out 
+            className={`p-2 px-6 w-[50%] rounded-full cursor-pointer transition-all duration-500 ease-in-out 
                     ${
                       vehicle === "Bikes"
                         ? "bg-customGrey text-slate-100"
-                        : "text-customGrey bg-slate-100"
+                        : "text-customGrey bg-slate-200"
                     }`}
           >
             Bikes
