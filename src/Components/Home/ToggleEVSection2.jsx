@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { Carousel } from "flowbite-react";
 import lineBackground from "../../Images/lineBackground.png";
 import eclips from "../../Images/EllipseSection2.png";
 import { FaArrowRightLong } from "react-icons/fa6";
