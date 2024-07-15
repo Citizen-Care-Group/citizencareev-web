@@ -54,20 +54,21 @@
 .custom-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  border-radius: 10px;
-  height: 25px;
+  width: 25px; /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
   background: #FFFFFF; /* Change the thumb color to white */
   cursor: pointer;
   border-radius: 50%;
-  border: 2px solid #4CAF50; 
+  border: 2px solid #4CAF50; /* Optional: Add a border to make it more visible */
 }
 
 .custom-range::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: #FFFFFF;
+  width: 25px; /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  background: #FFFFFF; /* Change the thumb color to white */
   cursor: pointer;
   border-radius: 50%;
-  border: none;
+  border: 2px solid #4CAF50; /* Optional: Add a border to make it more visible */
 }
+
+

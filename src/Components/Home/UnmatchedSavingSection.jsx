@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import scooty from "../../Images/Scooty/scooty.png";
+import { Carousel } from "flowbite-react";
 
 const UnmatchedSavingSection = () => {
-    const [value, setValue] = useState(50);
+  const [value, setValue] = useState(50);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -10,9 +12,9 @@ const UnmatchedSavingSection = () => {
     <div className=" flex flex-col justify-center items-center w-full">
       <div className=" w-[90%]">
         {/* price filter and Image  section  */}
-        <div className=" flex border-b border-slate-400 my-6 flex-col w-[50%] items-start justify-center lg:flex-row">
+        <div className=" w-full flex border-b border-slate-400 my-6 flex-col lg:flex-row items-start justify-between ">
           {/* filter  */}
-          <div className="  w-[80%] flex gap-8 flex-col">
+          <div className="  w-[45%] flex px-2 lg:px-16 gap-8 flex-col">
             <div className=" flex flex-col items-start">
               <h1 className=" text-lg text-black font-bold">
                 Unmatched Savings
@@ -23,16 +25,16 @@ const UnmatchedSavingSection = () => {
             </div>
             <div className=" w-full">
               <p className=" text-start text-sm text-slate-400">
-                Daily Distance: 50km
+                Daily Distance: {value}
               </p>
               <input
-               type="range"
-               className="custom-range"
-               min="0"
-               max="100"
-               value={value}
-               onChange={handleChange}
-               style={{ '--slider-value': `${value}%` }}
+                type="range"
+                className="custom-range"
+                min="0"
+                max="100"
+                value={value}
+                onChange={handleChange}
+                style={{ "--slider-value": `${value}%` }}
               />
               <div className=" flex gap-[5rem] justify-between">
                 <div className=" flex flex-col items-start">
@@ -53,10 +55,24 @@ const UnmatchedSavingSection = () => {
             </div>
           </div>
           {/* image  */}
-          <div></div>
+          <div className=" flex justify-center w-[50%]">
+            <img src={scooty} alt="scooty" className=" " />
+          </div>
         </div>
-        {/* bannder slider section  */}
-        <div></div>
+        {/* banner slider section  */}
+        <div className="h-56 my-4  sm:h-64 xl:h-80 2xl:h-96">
+          <Carousel className="rounded-none">
+            <div className="flex   h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+              Slide 1
+            </div>
+            <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+              Slide 2
+            </div>
+            <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+              Slide 3
+            </div>
+          </Carousel>
+        </div>
       </div>
     </div>
   );
