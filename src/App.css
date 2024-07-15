@@ -37,3 +37,37 @@
   }
 }
 
+/* input slider custom css  */
+
+/* styles.css or your main CSS file */
+.custom-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  border-radius: 10px;
+  height: 20px;
+  background: linear-gradient(to right, #4CAF50 0%, #4CAF50 var(--slider-value, 50%), #ddd var(--slider-value, 50%), #ddd 100%);
+  outline: none;
+  transition: background 0.15s ease-in-out;
+}
+
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  border-radius: 10px;
+  height: 25px;
+  background: #FFFFFF; /* Change the thumb color to white */
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #4CAF50; 
+}
+
+.custom-range::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #FFFFFF;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
