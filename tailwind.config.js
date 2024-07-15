@@ -11,7 +11,9 @@ module.exports = {
         headerColor: "#000000", // Replace with your hex color code
         customGreen: "#32C86E", // Replace with your hex color code
         customGrey: "#393E46", // Replace with your hex color code
-        customGray2: '#8C8C8C'
+        customGray2: '#8C8C8C',
+        final: "var(--final)",
+        "primary-green": "var(--primary-green)",
         
       },
      

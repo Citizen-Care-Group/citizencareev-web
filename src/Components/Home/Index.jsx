@@ -3,6 +3,7 @@ import MainCarousal from './MainCarousal'
 import ToggleEVSection2 from './ToggleEVSection2'
 import UrbanMobilityPosters from './UrbanMobilityPosters'
 import UnmatchedSavingSection from './UnmatchedSavingSection'
+import OurStores from '../Common/OurStores'
 
 const Index = () => {
   return (
@@ -10,7 +11,8 @@ const Index = () => {
       <MainCarousal />
       <ToggleEVSection2 />
       <UrbanMobilityPosters />
-      <UnmatchedSavingSection/>
+      <UnmatchedSavingSection />
+      <OurStores/>
     </div>
   )
 }
