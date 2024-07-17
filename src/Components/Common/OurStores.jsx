@@ -11,9 +11,9 @@ const OurStores = () => {
     'Card 6 Content'
   ];
   return (
-    <div className="flex justify-center flex-col w-full h-96 items-center  bg-[#eeeeee]">
-      <div className="flex w-full lg:w-[90%] bg-red-600 flex-col items-center justify-center gap-2.5 px-16 ">
-        <div className="relative flex-1 [font-family:'Darker_Grotesque-Bold',Helvetica] font-bold text-black text-2xl tracking-[-0.96px] leading-[55.3px]">
+    <div className="flex justify-center flex-col w-full h-96 items-center  bg-slate-600">
+      <div className="flex w-full lg:w-[90%]  flex-col items-center justify-center gap-2.5 px-16 ">
+        <div className="relative flex-1 [font-family:'Darker_Grotesque-Bold',Helvetica] font-bold text-white text-2xl tracking-[-0.96px] leading-[55.3px]">
           Our Stores
         </div>
         <StoreCardScroller cards={cards} />

@@ -4,6 +4,9 @@ import ToggleEVSection2 from './ToggleEVSection2'
 import UrbanMobilityPosters from './UrbanMobilityPosters'
 import UnmatchedSavingSection from './UnmatchedSavingSection'
 import OurStores from '../Common/OurStores'
+import News from './News'
+import FAQ from '../Common/FAQ'
+import BookYourRide from './BookYourRide'
 
 const Index = () => {
   return (
@@ -12,7 +15,10 @@ const Index = () => {
       <ToggleEVSection2 />
       <UrbanMobilityPosters />
       <UnmatchedSavingSection />
-      <OurStores/>
+      <OurStores />
+      <News />
+      <FAQ />
+      <BookYourRide/>
     </div>
   )
 }
