@@ -26,7 +26,7 @@ const Navbar = () => {
       <Link to="/" className="pl-4 md:pl-14">
         <img src={Logo} width={140} alt="Citizen Care Group" />
       </Link>
-      <div className="flex w-full justify-between px-4 md:px-10">
+      <div className="flex w-full justify-end lg:justify-between items-end px-4 md:px-10">
         <div className="hidden md:flex gap-4">
           {/* left div for the navigation */}
           {leftNavData.map((item, index) => (
@@ -58,7 +58,7 @@ const Navbar = () => {
       </div>
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-black p-4">
+        <div className="md:hidden absolute z-10 top-16 left-0 w-full bg-black p-4">
           <div className="flex flex-col gap-4">
             {leftNavData.map((item, index) => (
               <Link key={index} to={item.nav} className="text-white">
