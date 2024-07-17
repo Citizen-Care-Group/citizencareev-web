@@ -17,15 +17,15 @@ const StoreCardScroller = ({ cards }) => {
   };
 
   return (
-    <div className=" w-full flex items-center justify-around">
+    <div className=" rounded-md w-full flex items-center justify-around">
       <button
         onClick={handlePrevClick}
         disabled={startIndex === 0}
-        className="mr-2  text-white px-4 py-2 rounded disabled:opacity-50"
+        className=" mr-0 lg:mr-2  text-white px-1 lg:px-4 py-2 rounded disabled:opacity-50"
       >
         <FaArrowLeft />
       </button>
-      <div className="flex justify-center overflow-x-hidden space-x-4 w-full md:w-2/3 lg:w-full">
+      <div className="flex justify-center items-center overflow-x-hidden  w-full md:w-2/3 lg:w-full">
         {cards.slice(startIndex, startIndex + 3).map((card, index) => (
           <div
             key={index}
@@ -38,7 +38,7 @@ const StoreCardScroller = ({ cards }) => {
       <button
         onClick={handleNextClick}
         disabled={startIndex >= cards.length - 3}
-        className="ml-2  text-white px-4 py-2 rounded disabled:opacity-50"
+        className="ml-2  text-white px-1 lg:px-4 py-2 rounded disabled:opacity-50"
       >
         <FaArrowRight />
       </button>
