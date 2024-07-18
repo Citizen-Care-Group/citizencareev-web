@@ -112,21 +112,21 @@ const ToggleEVSection2 = () => {
       {/* line background section  */}
       <div
         style={{ backgroundImage: `url(${lineBackground})` }}
-        className={` w-[55%] relative bg-cover bg-no-repeat `}
+        className={` w-full lg:w-[55%] relative bg-cover bg-no-repeat `}
       >
         <img
-          className=" w-[90vw] mx-auto  lg:w-[30vw] p-4"
+          className=" w-[90%] mx-auto  lg:w-[30vw] p-4"
           src={eclips}
           alt=""
         />
-        <div className=" flex items-center justify-center flex-col gap-4  absolute left-[12rem] top-[11rem]">
-          <h1 className="  text-4xl font-bold w-[60%] ">
+        <div className=" flex items-center justify-center flex-col gap-4  absolute left-2 lg:left-[12rem] top-[5rem] lg:top-[11rem]">
+          <h1 className=" text-2xl lg:text-4xl font-bold w-[60%] ">
             Electrify your life with{" "}
             <span className=" text-customGreen"> Citizen EV!</span>
           </h1>
           <Link
             to="/"
-            className="flex justify-center group items-center gap-4 transition-all duration-200 rounded-md text-white font-bold py-4 bg-customGrey hover:bg-slate-800 w-[40%]"
+            className="flex w-[70%] lg:w-[40%]  justify-center group items-center gap-4 transition-all duration-200 rounded-md text-white font-bold py-4 bg-customGrey hover:bg-slate-800 "
           >
             Browse Products{" "}
             <FaArrowRightLong className=" group-hover:translate-x-4 transition-all duration-300" />{" "}
@@ -134,9 +134,9 @@ const ToggleEVSection2 = () => {
         </div>
       </div>
       {/* toggle ev section  */}
-      <div className=" w-[45%] flex item-center flex-col">
+      <div className=" w-[90%] lg:w-[45%] mx-auto flex item-center flex-col">
         {/* toggler  */}
-        <div className="flex items-center mx-auto w-[30%] bg-slate-200 rounded-full">
+        <div className="flex items-center mx-auto w-[90%] lg:w-[30%] bg-slate-200 rounded-full">
           <p
             onClick={() => setVehicle("Scooter")}
             className={`p-2 w-[50%] px-6 rounded-full cursor-pointer transition-all duration-500 ease-in-out 

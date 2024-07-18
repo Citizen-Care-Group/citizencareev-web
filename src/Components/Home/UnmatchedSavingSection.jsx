@@ -14,7 +14,7 @@ const UnmatchedSavingSection = () => {
         {/* price filter and Image  section  */}
         <div className=" w-full flex border-b border-slate-400 my-6 flex-col lg:flex-row items-start justify-between ">
           {/* filter  */}
-          <div className="  w-[45%] flex px-2 lg:px-16 gap-8 flex-col">
+          <div className=" w-full lg:w-[45%] flex px-2 lg:px-16 gap-8 flex-col">
             <div className=" flex flex-col items-start">
               <h1 className=" text-lg text-black font-bold">
                 Unmatched Savings
@@ -55,7 +55,7 @@ const UnmatchedSavingSection = () => {
             </div>
           </div>
           {/* image  */}
-          <div className=" flex justify-center w-[50%]">
+          <div className=" flex justify-center items-center w-full lg:w-[50%]">
             <img src={scooty} alt="scooty" className=" " />
           </div>
         </div>
