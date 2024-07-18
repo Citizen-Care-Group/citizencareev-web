@@ -16,7 +16,8 @@ const Navbar = () => {
     { data: "Dealer form", nav: "/dealerForm" },
   ];
   const rightNavData = [
-    { data: "Locate Us", nav: "/products" },
+    { data: "Locate Us", nav: "/get-in-touch" },
+    { data: "Contact US", nav: "/contact-us" },
     { data: "About Us", nav: "/brochure" },
     { data: "Schedule a Visit", nav: "/dealerForm" },
   ];

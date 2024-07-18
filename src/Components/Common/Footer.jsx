@@ -35,7 +35,7 @@ const Footer = () => {
     <div className=" w-full flex p-2 lg:p-10 py-6 flex-col lg:flex-row bg-black text-white">
       <div className=" w-full lg:w-[50%]">
         <img src={Logo} width={160} alt="" />
-        <p className=" text-center lg:text-left ">
+        <p className=" text-justify lg:text-left ">
           Citizen Care EV are the new buzz word when it comes to the world of
           automotive. With fossil fuel reserves running out and pollution levels
           increasing to dangerous levels, an alternative to internal combustion
