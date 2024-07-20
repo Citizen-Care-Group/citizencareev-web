@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import DemoImage from "../Images/DemoImage.png";
+import DemoImage from "../Images/ContactPageImage2.png";
 
 const ContactUsForm = () => {
   const [formData, setFormData] = useState({
+    contactNo:"",
     name: "",
     address: "",
     pincode: "",
@@ -25,17 +26,18 @@ const ContactUsForm = () => {
   };
 
   return (
-    <div className="flex items-center flex-col justify-center min-h-screen ">
-      <h1 className=" text-2xl font-bold mt-2">Contact Us</h1>
-      <div className="w-full flex  flex-col lg:flex-row justify-around p-2 lg:p-8 gap-2  rounded ">
-        <div className="img">
-          <img src={DemoImage} alt="contact us" />
+    <div className="flex items-center flex-col  ">
+      {/* <h1 className=" text-2xl font-bold mt-2">Contact Us</h1> */}
+      <div className="w-full flex  flex-col lg:flex-row justify-around  gap-2  rounded ">
+        <div className="img w-full lg:w-[50%]">
+          <img src={DemoImage}  className=" " alt="contact us" />
         </div>
-        <div className=" flex justify-center w-full lg:w-[40%] ">
+        <div className=" flex justify-center w-full lg:w-[50%] ">
           <form
             onSubmit={handleSubmit}
-            className=" w-[90%] lg:w-[70%] p-4 my-8 h-full lg:h-[70vh] shadow-m"
+            className=" w-[90%] lg:w-[70%] p-1 lg:p-4 my-8 h-full lg:h-[70vh] shadow-m"
           >
+            <h1 className=" text-2xl font-bold my-2">Contact Us</h1>
             <div>
               <label
                 htmlFor="name"
@@ -65,6 +67,23 @@ const ContactUsForm = () => {
                 name="address"
                 id="address"
                 value={formData.address}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="contact"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Contact No:
+              </label>
+              <input
+                type="text"
+                name="contact"
+                id="contact"
+                value={formData.contactNo}
                 onChange={handleChange}
                 required
                 className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
@@ -121,9 +140,9 @@ const ContactUsForm = () => {
               />
             </div>
             <div>
-              <button
+            <button
                 type="submit"
-                className="w-full px-4 py-2 text-white bg-black focus:ring-offset-2"
+                className="w-full px-4 py-2 text-white rounded-md bg-black hover:bg-slate-700 transition-all duration-300 focus:ring-offset-2"
               >
                 Submit
               </button>

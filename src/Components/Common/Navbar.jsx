@@ -19,7 +19,7 @@ const Navbar = () => {
     { data: "Locate Us", nav: "/get-in-touch" },
     { data: "Contact US", nav: "/contact-us" },
     { data: "About Us", nav: "/brochure" },
-    { data: "Schedule a Visit", nav: "/dealerForm" },
+    { data: "Book a test Ride", nav: "/get-in-touch" },
   ];
 
   return (
@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="hidden md:flex gap-4">
           {/* left div for the navigation */}
           {leftNavData.map((item, index) => (
-            <Link key={index} to={item.nav} className="text-white">
+            <Link key={index} to={item.nav} className="text-white hover:text-customGreen">
               {item.data}
             </Link>
           ))}

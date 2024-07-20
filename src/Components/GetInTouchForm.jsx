@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import DemoImage from "../Images/DemoImage.png";
+import DemoImage from "../Images/ContactPageImage2.png";
+
 
 const GetInTouchForm = () => {
   const [formData, setFormData] = useState({
@@ -21,20 +22,32 @@ const GetInTouchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+
+    if (!formData.location) {
+      return
+    }
+    // Log form data (optional, for verification purposes)
     console.log(formData);
+
+    // Trigger PDF download
+    const link = document.createElement("a");
+    link.href = "/Brochure.pdf"; // Adjust the path to your PDF file
+    link.setAttribute("download", "Brochure.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
-    <div className="flex items-center flex-col justify-center min-h-screen ">
-      <div className="w-full flex  flex-col lg:flex-row justify-around p-2 lg:p-8 gap-2  rounded ">
-        <div className="img">
+    <div className="flex items-center flex-col   ">
+      <div className="w-full flex  flex-col lg:flex-row justify-between   rounded ">
+        <div className="img w-full lg:w-[50%]">
           <img src={DemoImage} alt="contact us" />
         </div>
         <div className=" flex justify-center w-full lg:w-[40%] ">
           <form
             onSubmit={handleSubmit}
-            className=" w-[90%] lg:w-[70%] p-4 my-8 h-full lg:h-[70vh] shadow-md"
+            className=" w-[90%] lg:w-[70%] p-4 my-8 h-full lg:h-[80vh] shadow-md"
           >
             <h1 className=" text-2xl font-bold mt-2">Get In Touch with Us</h1>
             <div>
@@ -99,6 +112,7 @@ const GetInTouchForm = () => {
                 type="date"
                 name="dateOfPurchase"
                 id="dateOfPurchase"
+                placeholder="When would you like to make the purchase"
                 value={formData.dateOfPurchase}
                 onChange={handleChange}
                 required
@@ -140,9 +154,9 @@ const GetInTouchForm = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-4 py-2 text-white bg-black focus:ring-offset-2"
+                className="w-full px-4 py-2 text-white bg-black hover:bg-slate-700 transition-all duration-300 focus:ring-offset-2"
               >
-                Confirm Booking
+                Submit & Download Brochure
               </button>
             </div>
           </form>
