@@ -30,7 +30,7 @@ const Footer = () => {
       ],
     },
   ];
-  console.log(scooterFooterData);
+  // console.log(scooterFooterData);
   return (
     <div className=" w-full flex p-2 lg:p-10 py-6 flex-col lg:flex-row bg-black text-white">
       <div className=" w-full lg:w-[50%]">

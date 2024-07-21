@@ -30,13 +30,13 @@ const Scooties = () => {
   useEffect(() => {
     const getAllScooties = async () => {
       try {
-        console.log("Getting all Scooties");
+        // console.log("Getting all Scooties");
         setLoading(true);
         const response = await apiConnector("GET", GET_PRODUCTS);
-        console.log("Scooties API RESPONSE:", response?.data?.data);
+        // console.log("Scooties API RESPONSE:", response?.data?.data);
         setScooties(response?.data?.data);
       } catch (error) {
-        console.error("Error getting scooties:", error);
+        // console.error("Error getting scooties:", error);
       } finally {
         setLoading(false);
       }

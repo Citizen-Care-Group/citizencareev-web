@@ -27,7 +27,7 @@ const GetInTouchForm = () => {
       return
     }
     // Log form data (optional, for verification purposes)
-    console.log(formData);
+    // console.log(formData);
 
     // Trigger PDF download
     const link = document.createElement("a");

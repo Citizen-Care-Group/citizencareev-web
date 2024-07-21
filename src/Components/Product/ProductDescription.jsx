@@ -10,14 +10,14 @@ const ProductDescription = () => {
   const { id } = useParams();
   const [scooty, setScooty] = useState(null);
   const [loading, setLoading] = useState(false);
-  console.log("id", id);
+//   console.log("id", id);
   useEffect(() => {
     const fetchScooty = async () => {
       try {
         setLoading(true);
         const response = await apiConnector("GET", GET_PRODUCT(id));
         setScooty(response?.data?.data);
-        console.log("product fetched", response?.data?.data);
+        // console.log("product fetched", response?.data?.data);
       } catch (error) {
         console.error("Error fetching scooty details:", error);
       } finally {
