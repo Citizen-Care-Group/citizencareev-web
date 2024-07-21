@@ -30,7 +30,7 @@ const Footer = () => {
       ],
     },
   ];
-  console.log(scooterFooterData);
+  // console.log(scooterFooterData);
   return (
     <div className=" w-full flex p-2 lg:p-10 py-6 flex-col lg:flex-row bg-black text-white">
       <div className=" w-full lg:w-[50%]">
@@ -63,14 +63,14 @@ const Footer = () => {
             );
           })}
         </div>
-        <div className=" w-[50%] lg:w-[30%] text-left flex gap-3 flex-col">
+        <div className=" w-[50%] lg:w-[32%] text-left flex gap-3 flex-col">
                   <h1 className=" my-5 lg:my-6"> Contact</h1>
                   <p>Citizen Care Group, 159A, Behind IndusInd Bank, New Patliputra, Patna-, 800013.</p>
 
                   {/* to add a link to email */}
                   <a href="/">info@citizencareev.com</a>
                   {/* to add link to mobile contact  auto contact */}
-                  <a href="/">9608 555 514</a>
+                  <a href="/">+91-9608 555 514</a>
         </div>
       </div>
     </div>

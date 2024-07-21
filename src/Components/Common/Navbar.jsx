@@ -12,18 +12,18 @@ const Navbar = () => {
 
   const leftNavData = [
     { data: "Our Products", nav: "/products" },
-    { data: "Brochure", nav: "/brochure" },
-    { data: "Dealer form", nav: "/dealerForm" },
+    { data: "Brochure", nav: "/get-in-touch" },
+    { data: "Dealer form", nav: "/contact-us" },
   ];
   const rightNavData = [
     { data: "Locate Us", nav: "/get-in-touch" },
     { data: "Contact US", nav: "/contact-us" },
-    { data: "About Us", nav: "/brochure" },
+    { data: "About Us", nav: "/contact-us" },
     { data: "Book a test Ride", nav: "/get-in-touch" },
   ];
 
   return (
-    <div className="bg-black flex items-center p-4">
+    <div className=" bg-headerColor flex items-center p-4">
       <Link to="/" className="pl-4 md:pl-14">
         <img src={Logo} width={140} alt="Citizen Care Group" />
       </Link>
@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="hidden md:flex gap-4">
           {/* left div for the navigation */}
           {leftNavData.map((item, index) => (
-            <Link key={index} to={item.nav} className="text-white hover:text-customGreen">
+            <Link key={index} to={item.nav} className="text-white hover:text-customGreen transition-all duration-300">
               {item.data}
             </Link>
           ))}
@@ -44,7 +44,7 @@ const Navbar = () => {
                 {item.data}
               </Link>
             ) : (
-              <Link key={index} to={item.nav} className="text-white">
+              <Link key={index} to={item.nav} className="text-white hover:text-customGreen transition-all duration-300">
                 {item.data}
               </Link>
             )
