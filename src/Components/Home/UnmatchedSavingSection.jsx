@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import scooty from "../../Images/Scooty/scooty.png";
-import { Carousel } from "flowbite-react";
+// import { Carousel } from "flowbite-react";
 
 const UnmatchedSavingSection = () => {
   const [value, setValue] = useState(50);
@@ -60,7 +60,7 @@ const UnmatchedSavingSection = () => {
           </div>
         </div>
         {/* banner slider section  */}
-        <div className="h-56 my-4  sm:h-64 xl:h-80 2xl:h-96">
+        {/* <div className="h-56 my-4  sm:h-64 xl:h-80 2xl:h-96">
           <Carousel className="rounded-none">
             <div className="flex   h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
               Slide 1
@@ -72,7 +72,7 @@ const UnmatchedSavingSection = () => {
               Slide 3
             </div>
           </Carousel>
-        </div>
+        </div> */}
       </div>
     </div>
   );

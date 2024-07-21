@@ -31,7 +31,11 @@ const Scooter = () => {
   return (
     <div className="max-w-md mx-auto mt-10">
       <div className="bg-customGrey text-white  p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
-        <img className="text-xl font-bold mb-4" alt=" current pic" src={cards[currentCard].pic} />
+        <img
+          className="text-xl font-bold mb-4"
+          alt=" current pic"
+          src={cards[currentCard].pic}
+        />
         <h2 className="text-xl font-bold mb-4">{cards[currentCard].title}</h2>
         <p className="text-white">{cards[currentCard].content}</p>
       </div>
@@ -82,7 +86,11 @@ const Bikes = () => {
   return (
     <div className="max-w-md mx-auto mt-10">
       <div className="bg-white p-6 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
-        <img className="text-xl font-bold mb-4" alt=" current pic"  src={cards[currentCard].pic} />
+        <img
+          className="text-xl font-bold mb-4"
+          alt=" current pic"
+          src={cards[currentCard].pic}
+        />
 
         <h2 className="text-xl font-bold mb-4">{cards[currentCard].title}</h2>
         <p className="text-gray-700">{cards[currentCard].content}</p>
@@ -108,7 +116,7 @@ const Bikes = () => {
 const ToggleEVSection2 = () => {
   const [vehicle, setVehicle] = useState("Scooter");
   return (
-    <div className=" flex flex-col lg:flex-row my-4">
+    <div className=" flex flex-col lg:flex-row mb-4 py-2">
       {/* line background section  */}
       <div
         style={{ backgroundImage: `url(${lineBackground})` }}
