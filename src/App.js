@@ -9,7 +9,7 @@ import GetInTouchForm from "./Components/GetInTouchForm";
 import PLPindex from "./Components/Product/PLPindex";
 import ProductDescription from "./Components/Product/ProductDescription";
 import AllProducts from "./Components/Product/AllProducts";
-import About from './About';
+import About from './Components/About';
 
 function App() {
   return (

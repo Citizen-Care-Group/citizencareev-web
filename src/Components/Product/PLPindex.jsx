@@ -1,12 +1,12 @@
 import React from "react";
 import Poster1 from "./Poster1";
-import Scooties from "./Scooties";
+import SomeProducts from "./SomeProducts";
 
 const PLPindex = () => {
   return (
     <>
       <Poster1 />
-      <Scooties/>
+      <SomeProducts/>
     </>
   );
 };

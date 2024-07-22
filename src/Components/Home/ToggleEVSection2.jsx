@@ -4,9 +4,7 @@ import eclips from "../../Images/EllipseSection2.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Scooter from "./ToggleEV/Scooter";
-
-
-
+import Bikes from "./ToggleEV/Bikes";
 
 const ToggleEVSection2 = () => {
   const [vehicle, setVehicle] = useState("Scooter");
@@ -28,7 +26,7 @@ const ToggleEVSection2 = () => {
             <span className=" text-customGreen"> Citizen EV!</span>
           </h1>
           <Link
-            to="/"
+            to="/all-products"
             className="flex w-[70%] lg:w-[40%]  justify-center group items-center gap-4 transition-all duration-200 rounded-md text-white font-bold py-4 bg-customGrey hover:bg-slate-800 "
           >
             Browse Products{" "}
@@ -63,7 +61,7 @@ const ToggleEVSection2 = () => {
             Bikes
           </p>
         </div>
-        {vehicle === "Scooter" ? <Scooter /> : <Scooter /> }
+        {vehicle === "Scooter" ? <Scooter /> : <Bikes />}
       </div>
     </div>
   );
