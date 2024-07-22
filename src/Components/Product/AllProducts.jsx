@@ -30,7 +30,7 @@ const ProductCard = ({ productDetails }) => {
   );
 };
 
-const Scooties = () => {
+const AllProducts = () => {
   const [scooties, setScooties] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -57,20 +57,13 @@ const Scooties = () => {
   if (!scooties) return <p className="">No Scooties available</p>;
 
   return (
-    // <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {/* only starting 6 evs are shown rest all are spliced , they can be show after removing the splice method */}
-      {scooties?.splice(0, 6).map((scooty) => (
+      {scooties?.map((scooty) => (
         <ProductCard key={scooty._id} productDetails={scooty} />
       ))}
-      <Link
-        className=" bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-2xl font-bold my-3 ml-[1em] py-4  text-white text-center"
-        to="/all-products"
-      >
-        View All
-      </Link>
     </div>
   );
 };
 
-export default Scooties;
+export default AllProducts;
