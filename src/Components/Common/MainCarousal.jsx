@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Slide1 from "../../Images/Slider/Slide1.jpg";
 import Slide2 from "../../Images/Slider/slide2.jpg";
 import Slide3 from "../../Images/Slider/slide3.jpg";
+import { FaArrowRight } from "react-icons/fa6"; 
+import { Link } from "react-router-dom";
 
 const images = [Slide1, Slide2, Slide3];
 
@@ -97,6 +99,10 @@ const MainCarousel = () => {
           <span className="sr-only">Next</span>
         </span>
       </button>
+      <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[1%]  lg:right-[39.5%]">
+        <Link to="/contact-us" className=" bg-black text-white py-2 px-2 rounded-md flex jic">Get in touch </Link>
+        <Link to="/get-in-touch" className=" bg-customGreen flex justify-center items-center gap-1 text-black py-2 px-2 rounded-md">Book Test Ride <FaArrowRight/> </Link>
+      </div>
     </div>
   );
 };

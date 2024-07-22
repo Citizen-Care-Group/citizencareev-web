@@ -12,13 +12,13 @@ const Navbar = () => {
 
   const leftNavData = [
     { data: "Our Products", nav: "/products" },
-    { data: "Brochure", nav: "/get-in-touch" },
-    { data: "Dealer form", nav: "/contact-us" },
+    // { data: "Brochure", nav: "/get-in-touch" },
+    { data: "Dealer form", nav: "https://forms.gle/kFtXRRwornhbuY7T6" }, // Replace with your actual Google Form link
   ];
   const rightNavData = [
-    { data: "Locate Us", nav: "/get-in-touch" },
+    // { data: "Locate Us", nav: "/get-in-touch" },
     { data: "Contact US", nav: "/contact-us" },
-    { data: "About Us", nav: "/contact-us" },
+    { data: "About Us", nav: "/about-us" },
     { data: "Book a test Ride", nav: "/get-in-touch" },
   ];
 
@@ -30,11 +30,27 @@ const Navbar = () => {
       <div className="flex w-full justify-end lg:justify-between items-end px-4 md:px-10">
         <div className="hidden md:flex gap-4">
           {/* left div for the navigation */}
-          {leftNavData.map((item, index) => (
-            <Link key={index} to={item.nav} className="text-white hover:text-customGreen transition-all duration-300">
-              {item.data}
-            </Link>
-          ))}
+          {leftNavData.map((item, index) =>
+            item.data === "Dealer form" ? (
+              <a
+                key={index}
+                href={item.nav}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-customGreen transition-all duration-300"
+              >
+                {item.data}
+              </a>
+            ) : (
+              <Link
+                key={index}
+                to={item.nav}
+                className="text-white hover:text-customGreen transition-all duration-300"
+              >
+                {item.data}
+              </Link>
+            )
+          )}
         </div>
         {/* right div for the CTA section */}
         <div className="hidden md:flex gap-4">
@@ -44,7 +60,11 @@ const Navbar = () => {
                 {item.data}
               </Link>
             ) : (
-              <Link key={index} to={item.nav} className="text-white hover:text-customGreen transition-all duration-300">
+              <Link
+                key={index}
+                to={item.nav}
+                className="text-white hover:text-customGreen transition-all duration-300"
+              >
                 {item.data}
               </Link>
             )
@@ -52,7 +72,10 @@ const Navbar = () => {
         </div>
         {/* Hamburger menu icon */}
         <div className="md:hidden flex items-center">
-          <button onClick={toggleMenu} className="text-white focus:outline-none">
+          <button
+            onClick={toggleMenu}
+            className="text-white focus:outline-none"
+          >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
@@ -61,11 +84,23 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute z-10 top-16 left-0 w-full bg-black p-4">
           <div className="flex flex-col gap-4">
-            {leftNavData.map((item, index) => (
-              <Link key={index} to={item.nav} className="text-white">
-                {item.data}
-              </Link>
-            ))}
+            {leftNavData.map((item, index) =>
+              item.data === "Dealer form" ? (
+                <a
+                  key={index}
+                  href={item.nav}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  {item.data}
+                </a>
+              ) : (
+                <Link key={index} to={item.nav} className="text-white">
+                  {item.data}
+                </Link>
+              )
+            )}
             {rightNavData.map((item, index) =>
               item.data === "Schedule a Visit" ? (
                 <Link key={index} to={item.nav} className="text-customGreen">
