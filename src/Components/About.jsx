@@ -1,12 +1,14 @@
 import React from "react";
 // import MainCarousel from "./Components/Common/MainCarousal";
-import FAQ from "./Components/Common/FAQ";
+import FAQ from "./Common/FAQ";
+import EVabout from "./../Images/EV-About.jpg";
 
 const About = () => {
   return (
     <div className=" flex flex-col justify-center items-center w-full ">
-      <h1 className=" text-3xl mx-auto font-bold">About US</h1>
+      <h1 className=" text-3xl mx-auto font-bold my-4">About US</h1>
 
+      <img src={EVabout} alt="About US" />
       <div className=" w-full lg:w-[80%] flex flex-col gap-6 justify-center">
         {/* <MainCarousel /> */}
         <p>

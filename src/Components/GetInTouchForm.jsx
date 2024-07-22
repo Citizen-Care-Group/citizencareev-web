@@ -36,15 +36,15 @@ const GetInTouchForm = () => {
         alert("Form submitted successfully");
         console.log("Form submitted successfully", response.data);
         Setloading(false);
-        // alert(response?.data?.message);
+        alert(response?.data?.message);
 
         // Trigger PDF download
-        // const link = document.createElement("a");
-        // link.href = "/Brochure.pdf"; // Adjust the path to your PDF file
-        // link.setAttribute("download", "Brochure.pdf");
-        // document.body.appendChild(link);
-        // link.click();
-        // document.body.removeChild(link);
+        const link = document.createElement("a");
+        link.href = "/Brochure.pdf"; // Adjust the path to your PDF file
+        link.setAttribute("download", "Brochure.pdf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       } else {
         alert("Form submission failed");
         console.error("Form submission failed", response);
@@ -67,7 +67,7 @@ const GetInTouchForm = () => {
             onSubmit={handleSubmit}
             className=" w-full  p-4 h-full  shadow-md"
           >
-            <h1 className=" text-2xl font-bold my-2">Get In Touch with Us</h1>
+            <h1 className=" text-2xl font-bold my-2">Book a Test Drive !</h1>
             <div>
               <label
                 htmlFor="name"
@@ -162,7 +162,7 @@ const GetInTouchForm = () => {
                   htmlFor="date"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Date of Purchase
+                  Date of Visit
                 </label>
                 <input
                   type="date"

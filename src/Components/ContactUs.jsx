@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import DemoImage from "../Images/ContactPageImage2.png";
-
+import { apiConnector } from "../Services/connector";
+import { endpoints } from "../Services/apis";
+const { GET_IN_TOUCH } = endpoints;
 const ContactUsForm = () => {
+  const [loading, Setloading] = useState(false);
   const [formData, setFormData] = useState({
     phone: "",
+    email: "",
     name: "",
     address: "",
     pincode: "",
-    VisitDate: "",
+    date: "",
     dateOfPurchase: "",
     message: "",
   });
@@ -20,10 +24,27 @@ const ContactUsForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+    console.log("get in touch form", formData);
+
+    try {
+      Setloading(true);
+      const response = await apiConnector("POST", GET_IN_TOUCH, formData);
+      if (response.status === 201) {
+        alert("Form submitted successfully");
+        // console.log("Form submitted successfully", response.data);
+        Setloading(false);
+        alert(response?.data?.message);
+      } else {
+        alert("Form submission failed");
+        console.error("Form submission failed", response);
+        Setloading(false);
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+      Setloading(false);
+    }
   };
 
   return (
@@ -91,6 +112,23 @@ const ContactUsForm = () => {
                 className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
               />
             </div>
+            <div>
+              <label
+                htmlFor="contact"
+                className="block text-sm font-medium text-gray-700"
+              >
+                E-mail:
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+              />
+            </div>
             <div className=" flex flex-col lg:flex-row justify-between ">
               <div className=" w-full lg:w-[45%]">
                 <label
@@ -104,7 +142,7 @@ const ContactUsForm = () => {
                   name="pincode"
                   id="pincode"
                   pattern="\d{6}"
-                  maxlength="6"
+                  maxLength="6"
                   value={formData.pincode}
                   onChange={handleChange}
                   required
@@ -123,7 +161,7 @@ const ContactUsForm = () => {
                   name="date"
                   id="date"
                   placeholder="When Would You Like to Visit"
-                  value={formData.VisitDate}
+                  value={formData.date}
                   onChange={handleChange}
                   required
                   className="w-full px-3 py-2  mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
@@ -168,7 +206,7 @@ const ContactUsForm = () => {
                 type="submit"
                 className="w-full px-4 py-2 text-white rounded-md bg-black hover:bg-slate-700 transition-all duration-300 focus:ring-offset-2"
               >
-                Submit
+                {loading ? "Submiting..." : "Submit"}
               </button>
             </div>
           </form>

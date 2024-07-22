@@ -16,7 +16,11 @@ const Scooter = () => {
         setLoading(true);
         const response = await apiConnector("GET", GET_PRODUCTS);
         console.log("Scooties API RESPONSE in toggler:", response?.data);
-        setCards(response?.data?.data || []);
+        let UnFiltered = response?.data?.data || [];
+        let filtered = UnFiltered.filter((item) => item.type === "SCOOTER");
+        console.log("filtered", filtered);
+
+        setCards(filtered || []);
         // console.log(object);
       } catch (error) {
         // console.error("Error getting scooties:", error);
@@ -35,7 +39,9 @@ const Scooter = () => {
   };
 
   const prevCard = () => {
-    setCurrentCard((prevCard) => (prevCard - 1 + cardss.length) % cardss.length);
+    setCurrentCard(
+      (prevCard) => (prevCard - 1 + cardss.length) % cardss.length
+    );
   };
 
   if (loading) return <p className=" ">Loading...</p>;
