@@ -10,6 +10,7 @@ import PLPindex from "./Components/Product/PLPindex";
 import ProductDescription from "./Components/Product/ProductDescription";
 import AllProducts from "./Components/Product/AllProducts";
 import About from './Components/About';
+import AllProductDescription from "./Components/Product/AllProductDescription";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="products" element={<PLPindex />} />
         <Route path="all-products" element={<AllProducts />} />
         <Route path="products/EV/:id" element={<ProductDescription />} />
+        <Route path="all-products/products/:id" element={<AllProductDescription/>} />
       </Route>
     </Routes>
   );
