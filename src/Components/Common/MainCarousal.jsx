@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slide1 from "../../Images/Slider/Slide1.jpg";
 import Slide2 from "../../Images/Slider/slide2.jpg";
 import Slide3 from "../../Images/Slider/slide3.jpg";
@@ -8,6 +8,13 @@ const images = [Slide1, Slide2, Slide3];
 
 const MainCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((currentIndex) => (currentIndex + 1) % images.length);
+    }, 2000); // Change card every 3 seconds
+
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }, [currentIndex]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
