@@ -68,9 +68,9 @@ const Footer = () => {
                   <p>Citizen Care Group, 159A, Behind IndusInd Bank, New Patliputra, Patna-, 800013.</p>
 
                   {/* to add a link to email */}
-                  <a href="/">info@citizencareev.com</a>
+                  <a href="mailto:info@citizencareev.com">info@citizencareev.com</a>
                   {/* to add link to mobile contact  auto contact */}
-                  <a href="/">+91-9608 555 514</a>
+                  <a href="tel:+919608555514">+91-9608 555 514</a>
         </div>
       </div>
     </div>

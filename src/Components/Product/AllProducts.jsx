@@ -20,7 +20,7 @@ const ProductCard = ({ productDetails }) => {
         <h3 className="text-lg font-semibold">{name}</h3>
         <p className="text-gray-500">{tagLine}</p>
         <Link
-          to={`EV/${productDetails._id}`}
+          to={`/EV/${productDetails._id}`}
           className=" w-full px-4 py-2 bg-black text-white text-center rounded-md hover:bg-slate-800 focus:outline-none"
         >
           View Details
