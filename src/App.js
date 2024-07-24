@@ -21,7 +21,7 @@ function App() {
         <Route path="get-in-touch" element={<GetInTouchForm />} />
         <Route path="products" element={<PLPindex />} />
         <Route path="all-products" element={<AllProducts />} />
-        <Route path="EV/:id" element={<ProductDescription />} />
+        <Route path="products/EV/:id" element={<ProductDescription />} />
       </Route>
     </Routes>
   );
