@@ -33,13 +33,6 @@ const Bikes = () => {
   }, []);
 
   const [currentCard, setCurrentCard] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCard((prevCard) => (prevCard + 1) % cardss.length);
-    }, 3000); // Change card every 3 seconds
-
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, [cardss.length]);
 
   const nextCard = () => {
     setCurrentCard((prevCard) => (prevCard + 1) % cardss.length);

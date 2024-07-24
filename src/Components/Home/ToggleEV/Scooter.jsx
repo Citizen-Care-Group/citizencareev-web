@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import scooty from "../../../Images/Scooty/scooty.png";
 import { apiConnector } from "../../../Services/connector";
 import { endpoints } from "../../../Services/apis";
-import { Link } from "react-router-dom";
-
 const { GET_PRODUCTS } = endpoints;
 
 const Scooter = () => {
   const [loading, setLoading] = useState(null);
   const [cardss, setCards] = useState([]);
-  const [currentCard, setCurrentCard] = useState(0);
 
   useEffect(() => {
     const getAllScooties = async () => {
       try {
+        // console.log("Getting all Scooties");
         setLoading(true);
         const response = await apiConnector("GET", GET_PRODUCTS);
         console.log("Scooties API RESPONSE in toggler:", response?.data);
@@ -22,8 +21,9 @@ const Scooter = () => {
         console.log("filtered", filtered);
 
         setCards(filtered || []);
+        // console.log(object);
       } catch (error) {
-        console.error("Error getting scooties:", error);
+        // console.error("Error getting scooties:", error);
       } finally {
         setLoading(false);
       }
@@ -32,13 +32,7 @@ const Scooter = () => {
     getAllScooties();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCard((prevCard) => (prevCard + 1) % cardss.length);
-    }, 3000); // Change card every 3 seconds
-
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, [cardss.length]);
+  const [currentCard, setCurrentCard] = useState(0);
 
   const nextCard = () => {
     setCurrentCard((prevCard) => (prevCard + 1) % cardss.length);
@@ -63,10 +57,7 @@ const Scooter = () => {
           src={cardss[currentCard]?.images?.[0] || scooty}
         />
         <h2 className="text-xl font-bold mb-4">{cardss[currentCard]?.name}</h2>
-        <div className=" flex justify-between items-center">
-          <p className="text-white">{cardss[currentCard]?.tagLine}</p>
-          <Link className=" bg-customGreen py-2 px-1 rounded-md text-white" to={`/EV/${cardss[currentCard]?._id}`} >Know More</Link>
-        </div>
+        <p className="text-white">{cardss[currentCard]?.tagLine}</p>
       </div>
       <div className="flex justify-between mt-4">
         <button
