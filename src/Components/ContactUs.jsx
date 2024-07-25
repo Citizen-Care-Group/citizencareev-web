@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import DemoImage from "../Images/ContactPageImage2.png";
 import { apiConnector } from "../Services/connector";
 import { endpoints } from "../Services/apis";
+import { TextField } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
+
 const { GET_IN_TOUCH } = endpoints;
 const ContactUsForm = () => {
   const [loading, Setloading] = useState(false);
@@ -50,155 +54,144 @@ const ContactUsForm = () => {
   return (
     <div className="flex items-center flex-col  ">
       {/* <h1 className=" text-2xl font-bold mt-2">Contact Us</h1> */}
-      <div className="w-full flex  flex-col lg:flex-row  gap-2  rounded ">
-        <div className="img w-full lg:w-[50%]">
-          <img src={DemoImage} className=" " alt="contact us" />
+      <div className="w-full flex justify-between  lg:flex-row  gap-2  rounded ">
+        <div className="w-full">
+          <img src={DemoImage} className="h-[100%] w-[100%]" alt="contact us" />
         </div>
-        <div className=" flex w-full lg:w-[50%] ">
+        <div className=" flex w-full justify-center">
           <form
             onSubmit={handleSubmit}
-            className=" w-[90%] lg:w-[80%] p-1 lg:p-4  h-full lg:h-[70vh] shadow-m"
+            className=" w-[90%] flex flex-col gap-3 lg:w-[80%] p-1 lg:p-4  h-full lg:h-[70vh] shadow-m"
           >
-            <h1 className=" text-2xl font-bold my-2">Contact Us</h1>
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Name
-              </label>
-              <input
+              <h1 className=" text-2xl font-bold ">Contact Us</h1>
+              <p>
+                Fill in the form below to get in touch with{" "}
+                <span className="text-blue-700">Citizen</span>{" "}
+              </p>
+            </div>
+            <div>
+              <TextField
+                onChange={handleChange}
+                size="small"
+                value={formData.name}
+                required
                 type="text"
                 name="name"
                 id="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+                label="Name"
+                variant="outlined"
+                className="w-full"
               />
             </div>
-            <div>
-              <label
-                htmlFor="address"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Address
-              </label>
-              <input
+            <div className="">
+              <TextField
+                onChange={handleChange}
+                size="small"
+                value={formData.address}
+                required
                 type="text"
                 name="address"
                 id="address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+                label="Address"
+                variant="outlined"
+                className="w-full"
               />
             </div>
             <div>
-              <label
-                htmlFor="contact"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Contact No:
-              </label>
-              <input
-                type="tel"
+              <TextField
+                onChange={handleChange}
+                size="small"
+                value={formData.phone}
+                required
+                type="number"
                 name="phone"
                 id="phone"
-                value={formData.phone}
-                pattern="\+?[0-9\s\-\(\)]*"
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+                label="Contact No"
+                variant="outlined"
+                className="w-full"
               />
             </div>
             <div>
-              <label
-                htmlFor="contact"
-                className="block text-sm font-medium text-gray-700"
-              >
-                E-mail:
-              </label>
-              <input
+              <TextField
+                onChange={handleChange}
+                size="small"
+                value={formData.email}
+                required
                 type="email"
                 name="email"
                 id="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+                label="Email"
+                variant="outlined"
+                className="w-full"
               />
             </div>
             <div className=" flex flex-col lg:flex-row justify-between ">
               <div className=" w-full lg:w-[45%]">
-                <label
-                  htmlFor="pincode"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Pincode
-                </label>
-                <input
-                  type="text"
+                <TextField
+                  onChange={handleChange}
+                  size="small"
+                  value={formData.pincode}
+                  required
+                  type="number"
                   name="pincode"
                   id="pincode"
-                  pattern="\d{6}"
+                  label="Pincode"
+                  pattersn="\d{6}"
+                  variant="outlined"
+                  className="w-full"
                   maxLength="6"
-                  value={formData.pincode}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 py-2  mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
                 />
               </div>
               <div className=" w-full lg:w-[50%]">
-                <label
-                  htmlFor="date"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Date of Visit
-                </label>
-                <input
-                  type="date"
+                <DatePicker
+                  label="Date of Visit"
+                  className="w-full"
                   name="date"
                   id="date"
-                  placeholder="When Would You Like to Visit"
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 py-2  mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+                  onChange={(newValue) => {
+                    setFormData({
+                      ...formData,
+                      date: newValue,
+                    });
+                  }}
+                  slotProps={{ textField: { size: "small" } }}
                 />
               </div>
             </div>
             <div>
-              <label
-                htmlFor="dateOfPurchase"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Date of Purchase
-              </label>
-              <input
-                type="date"
+              <DatePicker
+                label="Date of Purchase"
+                className="w-full"
                 name="dateOfPurchase"
                 id="dateOfPurchase"
-                value={formData.dateOfPurchase}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+                onChange={(newValue) => {
+                  setFormData({
+                    ...formData,
+                    date: newValue,
+                  });
+                }}
+                slotProps={{ textField: { size: "small" } }}
               />
             </div>
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Message
-              </label>
-              <textarea
+            
+              <TextField
+                onChange={handleChange}
+                multiline
+                style={{ border: "none", outline: "none" }}
+                rows={4}
+                size="large"
+                value={formData.message}
+                required
+                type="text"
                 name="message"
                 id="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm bg-slate-200"
+                label="Message"
+                variant="outlined"
+                aria-required
+                className="w-full"
+               
               />
             </div>
             <div>
@@ -208,6 +201,10 @@ const ContactUsForm = () => {
               >
                 {loading ? "Submiting..." : "Submit"}
               </button>
+            </div>
+            <div className="flex flex-col font-thin justify-center items-center text-xs">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem aspernatur sit dolorum.</p>
+              <p>Lorem, ipsum dolor.</p>
             </div>
           </form>
         </div>

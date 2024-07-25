@@ -3,6 +3,7 @@ import Logo from "../../Images/Logo.png";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi"; // Importing icons for hamburger menu
 
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,7 +26,7 @@ const Navbar = () => {
   return (
     <div className=" bg-headerColor flex items-center p-4">
       <Link to="/" className="pl-4 md:pl-14">
-        <img src={Logo} width={140} alt="Citizen Care Group" />
+        <img src={Logo} width={80} alt="Citizen Care Group" />
       </Link>
       <div className="flex w-full justify-end lg:justify-between items-end px-4 md:px-10">
         <div className="hidden md:flex gap-4">
