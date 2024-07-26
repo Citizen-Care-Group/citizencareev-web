@@ -109,3 +109,21 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-next {
+  right: 10px;
+  background: rgb(0, 2, 12) !important;
+  border-radius: 40px;
+}
+
+.slick-prev {
+  left: 10px;
+  z-index: 2;
+  background: rgb(16, 0, 0) !important;
+  border-radius: 40px;
+}
+
