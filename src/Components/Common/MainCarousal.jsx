@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Slide1 from "../../Images/Slider/Slide1.jpg";
 import Slide2 from "../../Images/Slider/slide2.jpg";
 import Slide3 from "../../Images/Slider/slide3.jpg";
@@ -8,13 +8,16 @@ const images = [Slide1, Slide2, Slide3];
 
 const MainCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((currentIndex) => (currentIndex + 1) % images.length);
-    }, 1500); // Change card every 3 seconds
+    }, 1500); // Change card every 1.5 seconds
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex]);
+=======
+
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -105,9 +108,15 @@ const MainCarousel = () => {
           <span className="sr-only">Next</span>
         </span>
       </button>
+
       <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[10%]  lg:right-[41%]">
         <Link to="/contact-us" className=" bg-black font-bold text-white py-2 px-4 rounded-md flex jic">Get in touch </Link>
         <Link to="/get-in-touch" className=" bg-customGreen font-bold flex justify-center items-center gap-1 text-white py-2 px-2 rounded-md">Book Test Ride </Link>
+=======
+      <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[1%]  lg:right-[41%]">
+        <Link to="/contact-us" className=" bg-black font-bold text-customGreen py-2 px-2 rounded-md flex jic">Get in touch </Link>
+        <Link to="/get-in-touch" className=" bg-customGreen font-bold flex justify-center items-center gap-1 text-black py-2 px-2 rounded-md">Book Test Ride </Link>
+
       </div>
     </div>
   );

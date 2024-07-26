@@ -26,7 +26,7 @@ const FAQ = () => {
                   aria-expanded={openItem === index}
                   aria-controls={`accordion-collapse-body-${index + 1}`}
                 >
-                  <span className=" text-black font-bold">{item.question}</span>
+                  <span>{item.question}</span>
                   <svg
                     className={`w-3 h-3 transition-transform ${
                       openItem === index ? "" : "rotate-180"
