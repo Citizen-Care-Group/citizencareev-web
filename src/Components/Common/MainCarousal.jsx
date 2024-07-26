@@ -11,7 +11,7 @@ const MainCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((currentIndex) => (currentIndex + 1) % images.length);
-    }, 2000); // Change card every 3 seconds
+    }, 1500); // Change card every 3 seconds
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex]);
