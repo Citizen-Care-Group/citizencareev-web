@@ -17,8 +17,6 @@ const MainCarousel = () => {
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex]);
 
-
-
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
@@ -110,16 +108,35 @@ const MainCarousel = () => {
       </button>
 
       <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[10%]  lg:right-[41%]">
-        <Link to="/contact-us" className=" bg-black font-bold text-white py-2 px-4 rounded-md flex jic">Get in touch </Link>
-        <Link to="/get-in-touch" className=" bg-customGreen font-bold flex justify-center items-center gap-1 text-white py-2 px-2 rounded-md">Book Test Ride </Link>
-=======
-      <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[1%]  lg:right-[41%]">
-        <Link to="/contact-us" className=" bg-black font-bold text-customGreen py-2 px-2 rounded-md flex jic">Get in touch </Link>
-        <Link to="/get-in-touch" className=" bg-customGreen font-bold flex justify-center items-center gap-1 text-black py-2 px-2 rounded-md">Book Test Ride </Link>
-
+        <Link
+          to="/contact-us"
+          className=" bg-black font-bold text-white py-2 px-4 rounded-md flex jic"
+        >
+          Get in touch{" "}
+        </Link>
+        <Link
+          to="/get-in-touch"
+          className=" bg-customGreen font-bold flex justify-center items-center gap-1 text-white py-2 px-2 rounded-md"
+        >
+          Book Test Ride{" "}
+        </Link>
+        =======
+        <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[1%]  lg:right-[41%]">
+          <Link
+            to="/contact-us"
+            className=" bg-black font-bold text-customGreen py-2 px-2 rounded-md flex jic"
+          >
+            Get in touch{" "}
+          </Link>
+          <Link
+            to="/get-in-touch"
+            className=" bg-customGreen font-bold flex justify-center items-center gap-1 text-black py-2 px-2 rounded-md"
+          >
+            Book Test Ride{" "}
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
-
 export default MainCarousel;

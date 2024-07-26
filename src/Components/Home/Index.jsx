@@ -4,7 +4,7 @@ import ToggleEVSection2 from './ToggleEVSection2'
 import UrbanMobilityPosters from './UrbanMobilityPosters'
 // import UnmatchedSavingSection from './UnmatchedSavingSection'
 // import OurStores from '../Common/OurStores'
-// import News from './News'
+import News from './News'
 import FAQ from '../Common/FAQ'
 
 const Index = () => {
@@ -15,7 +15,7 @@ const Index = () => {
       <UrbanMobilityPosters />
       {/* <UnmatchedSavingSection /> */}
       {/* <OurStores /> */}
-      {/* <News /> */}
+      <News />
       <FAQ />
     </div>
   )
