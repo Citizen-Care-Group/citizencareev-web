@@ -38,7 +38,7 @@ const Carousal2 = () => {
 
   if (!carousalImages) return null;
   return (
-    <div className="relative w-full h-[22rem] overflow-hidden">
+    <div className=" hidden lg:block relative w-full h-[22rem] overflow-hidden">
       {carousalImages.map((image, index) => (
         <div
           key={index}
