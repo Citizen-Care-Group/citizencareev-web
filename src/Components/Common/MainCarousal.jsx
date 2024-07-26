@@ -16,7 +16,7 @@ const MainCarousel = () => {
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex]);
-=======
+
 
 
   const nextSlide = () => {
