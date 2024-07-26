@@ -59,11 +59,11 @@ const Scooter = () => {
     <div className=" max-w-full gap-1 lg:gap-4 flex justify-center items-center lg:max-w-[65%] mx-auto mt-10">
       <button
         onClick={prevCard}
-        className=" text-slate-700 text-3xl rounded hover:bg-green-600 transition duration-300"
+        className=" text-slate-700 text-3xl rounded  transition duration-300"
       >
         <FaCaretLeft />
       </button>
-      <div className="bg-customGrey text-white p-1 lg:p-4 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
+      <div className="bg-customGrey text-white p-2 lg:p-4 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
         <img
           className="text-xl font-bold mb-4 h-[50vh]"
           alt="current pic"
