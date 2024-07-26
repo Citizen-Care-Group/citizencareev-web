@@ -6,9 +6,6 @@ import { endpoints } from "../../../Services/apis";
 
 import { Link } from "react-router-dom";
 import { FaCaretRight, FaCaretLeft,FaChevronRight } from "react-icons/fa";
-
-
- main
 const { GET_PRODUCTS } = endpoints;
 
 const Scooter = () => {
