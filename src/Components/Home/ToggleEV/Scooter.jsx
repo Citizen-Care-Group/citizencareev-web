@@ -72,8 +72,8 @@ const Scooter = () => {
         </div>
         <div className=" flex justify-center border-b my-2">
           <ul className="text-white list-disc mx-auto">
-            {cardss[currentCard]?.features.slice(0, 3).map((feature) => (
-              <li> {feature?.text} </li>
+            {cardss[currentCard]?.features.slice(0, 3).map((feature,index) => (
+              <li key={index}> {feature?.text} </li>
             ))}
           </ul>
         </div>
