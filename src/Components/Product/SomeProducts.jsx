@@ -4,6 +4,7 @@ import { endpoints } from "../../Services/apis";
 import { Link } from "react-router-dom";
 import FAQ from "../Common/FAQ";
 import { MdCurrencyRupee } from "react-icons/md";
+import Savings from "./Savings";
 
 const { GET_PRODUCTS } = endpoints;
 
@@ -144,7 +145,26 @@ const SomeProducts = () => {
         </Link>
       </div>
       
+      <div className="flex flex-col items-center justify-centers">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {eriksha?.splice(0, 3).map((scooty) => (
+            <ProductCard key={scooty._id} productDetails={scooty} />
+          ))}
+        </div>
+        <Link
+          className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%] "
+          to="/all-products"
+        >
+          View All
+        </Link>
+      </div>
+
+      <Savings />
+      
+      <div className="sm:mt-[30%]">
+
       <FAQ />
+      </div>
     </>
   );
 };
