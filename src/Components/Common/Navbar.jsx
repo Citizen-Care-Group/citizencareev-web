@@ -18,7 +18,7 @@ const Navbar = () => {
   ];
   const rightNavData = [
     // { data: "Locate Us", nav: "/get-in-touch" },
-    { data: "Contact US", nav: "/contact-us" },
+    { data: "Contact Us", nav: "/contact-us" },
     { data: "About Us", nav: "/about-us" },
     { data: "Book a test Ride", nav: "/get-in-touch" },
   ];
