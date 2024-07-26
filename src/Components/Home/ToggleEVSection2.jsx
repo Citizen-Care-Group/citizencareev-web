@@ -9,7 +9,7 @@ import Bikes from "./ToggleEV/Bikes";
 const ToggleEVSection2 = () => {
   const [vehicle, setVehicle] = useState("Scooter");
   return (
-    <div className=" flex flex-col lg:flex-row mb-4 py-2">
+    <div className=" flex flex-col lg:flex-row mb-4 p-0 lg:py-2">
       {/* line background section  */}
       <div
         style={{ backgroundImage: `url(${lineBackground})` }}
@@ -35,7 +35,7 @@ const ToggleEVSection2 = () => {
         </div>
       </div>
       {/* toggle ev section  */}
-      <div className=" w-[90%] lg:w-[45%] mx-auto flex item-center flex-col">
+      <div className=" w-[98%] lg:w-[45%] mx-auto flex item-center flex-col">
         {/* toggler  */}
         <div className="flex items-center mx-auto w-[90%] lg:w-[30%] bg-slate-200 rounded-full">
           <p
@@ -61,6 +61,7 @@ const ToggleEVSection2 = () => {
             Bikes
           </p>
         </div>
+        {/* <div className=" w-[80%]"></div> */}
         {vehicle === "Scooter" ? <Scooter /> : <Bikes />}
       </div>
     </div>
