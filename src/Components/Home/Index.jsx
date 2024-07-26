@@ -6,6 +6,7 @@ import UrbanMobilityPosters from './UrbanMobilityPosters'
 // import OurStores from '../Common/OurStores'
 import News from './News'
 import FAQ from '../Common/FAQ'
+import Carousal2 from './Carousal2'
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <UrbanMobilityPosters />
       {/* <UnmatchedSavingSection /> */}
       {/* <OurStores /> */}
+      <Carousal2/>
       <News />
       <FAQ />
     </div>
