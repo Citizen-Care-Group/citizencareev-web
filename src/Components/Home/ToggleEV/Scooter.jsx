@@ -85,8 +85,7 @@ const Scooter = () => {
             <span>Explore </span> <FaChevronRight />
           </Link>
         </div>
-        <h2 className="text-xl font-bold mb-4">{cardss[currentCard]?.name}</h2>
-        <p className="text-white">{cardss[currentCard]?.tagLine}</p>
+       
 
       </div>
       <button
