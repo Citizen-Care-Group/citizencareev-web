@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import FAQ from "../Common/FAQ";
 import { MdCurrencyRupee } from "react-icons/md";
 import Savings from "./Savings";
+import ScooterComparison from "./Compare";
+import axios from "axios";
 
-const { GET_PRODUCTS } = endpoints;
+const { GET_PRODUCTS, GET_PRODUCTS_BY_TYPE } = endpoints;
 
 const ProductCard = ({ productDetails }) => {
   const { name, tagLine, images, exShowroomPriceDetails } = productDetails;
@@ -41,9 +43,16 @@ const ProductCard = ({ productDetails }) => {
 
 const SomeProducts = () => {
   const [scooties, setScooties] = useState(null);
-  const [eriksha, setEriksha] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [viewAll, setViewAll] = useState(false);
+  const [highSpeedViewAll, setHighSpeedViewAll] = useState(false);
+  const [lowSpeedviewAll, setLowSpeedViewAll] = useState(false);
+  const [bikeViewAll, setBikeViewAll] = useState(false);
+  const [eRikshaViewAll, setERikshaViewAll] = useState(false);
+
+  const [highSpeedScooties, setHighSpeedScooties] = useState(null);
+  const [lowSpeedScooties, setLowSpeedScooties] = useState(null);
+  const [bike, setBike] = useState(null);
+  const [eriksha, setEriksha] = useState(null);
 
   const [test, setTest] = useState(null);
 
@@ -51,17 +60,60 @@ const SomeProducts = () => {
     const getAllScooties = async () => {
       try {
         setLoading(true);
-        const response = await apiConnector("GET", GET_PRODUCTS);
-        const erikshaData = await apiConnector("GET", GET_PRODUCTS);
+        // const response = await apiConnector("GET", GET_PRODUCTS);
         const test = await apiConnector("GET", GET_PRODUCTS);
+        console.log("test", test?.data?.data);
 
-        // should have 4 api calls for high speed scooties, low speed scooties, Bikes and E-Riksha
-        setScooties(response?.data?.data);
+        // const highSpeedScootieResponse = test?.data?.data?.filter(
+        //   (scooter) => {
+        //     console.log("my chut", scooter);
+
+        //     if(scooter.speedType){
+        //       console.log("acheeeeeeeeeeeeeee");
+        //       return scooter.speedType === "HIGH";
+        //     }
+            
+        //   }
+        // );
+        // const lowSpeedScootiesResponse = test?.data?.data?.filter(
+        //   (scooter) => scooter.speedType === "LOW"
+        // );
+        // const bikeResponse = test?.data?.data?.filter(
+        //   (scooter) => scooter.type === "BIKE"
+        // );
+
+        // setBike(bikeResponse);
+        // setHighSpeedScooties(highSpeedScootieResponse);
+        // setLowSpeedScooties(lowSpeedScootiesResponse);
+        // const eRiksha = test?.data?.data?.filter((scooter) => scooter.type === "E-RIKSHA");
+
+        // console.log("highSpeedScooties", highSpeedScootieResponse);
+        console.log("lowSpeedScooties", lowSpeedScooties);
+        console.log("bike", bike);
+        // console.log("eRiksha", eRiksha);
+
+        //High speed scooties api
+        const lllll = await axios.get("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?speedType=LOW&type=SCOOTER");
+        console.log("llllllllllllll", lllll);
+        setHighSpeedScooties(lllll?.data?.data);
+
+        //Low speed scooties api
+        const lowSpeedResponse = await apiConnector("GET", GET_PRODUCTS_BY_TYPE("SCOOTER", "LOW"));
+        console.log("lowwww", lowSpeedResponse);
+        setLowSpeedScooties(lowSpeedResponse?.data?.data);
+
+        //Bike api
+        const bikeResponse = await apiConnector("GET", GET_PRODUCTS_BY_TYPE("BIKE", ""));
+        console.log("BIKE", bikeResponse);
+        setBike(bikeResponse?.data?.data);
+
+        //E-Riksha api
+        const erikshaData = await apiConnector("GET", GET_PRODUCTS);
+        console.log("ERIKSHA", erikshaData?.data?.data);
+        setEriksha(erikshaData?.data?.data);
 
         // Dummy data for E-Riksha
-        setEriksha(erikshaData?.data?.data);
         setTest(test?.data?.data);
-        console.log(test?.data?.data);
       } catch (error) {
         console.error("Error getting scooties:", error);
       } finally {
@@ -74,7 +126,7 @@ const SomeProducts = () => {
 
   if (loading) return <p className="">Loading...</p>;
 
-  if (!scooties) return <p className="">No Scooties available</p>;
+  // if (!scooties) return <p className="">No Scooties available</p>;
 
   return (
     <>
@@ -84,17 +136,19 @@ const SomeProducts = () => {
       </h2>
       <div className="flex flex-col items-center justify-centers">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {viewAll ? (
+          {highSpeedViewAll ? (
             <>
-              {scooties?.map((scooty) => (
+              {highSpeedScooties?.map((scooty) => (
                 <ProductCard key={scooty._id} productDetails={scooty} />
               ))}
             </>
-          ) : null}
-
-          {test?.splice(0, 3).map((t) => (
-            <ProductCard key={t._id} productDetails={t} />
-          ))}
+          ) : (
+            <>
+              {highSpeedScooties?.splice(0, 3).map((t) => (
+                <ProductCard key={t._id} productDetails={t} />
+              ))}
+            </>
+          )}
 
           {/* {scooties?.splice(0, 3).map((scooty) => (
             <ProductCard key={scooty._id} productDetails={scooty} />
@@ -103,8 +157,11 @@ const SomeProducts = () => {
         <button
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%]  "
           // to="/all-products"
-          hidden={viewAll}
-          onClick={() => setViewAll(true)}
+          hidden={highSpeedViewAll}
+          onClick={() => {
+            setHighSpeedViewAll(true)
+            console.log("fuckkkkkkkkkkk", highSpeedScooties);
+          }}
         >
           View All
         </button>
@@ -116,13 +173,24 @@ const SomeProducts = () => {
       </h2>
       <div className="flex flex-col items-center justify-centers">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {scooties?.splice(0, 3).map((scooty) => (
-            <ProductCard key={scooty._id} productDetails={scooty} />
-          ))}
+          {lowSpeedviewAll ? (
+            <>
+              {lowSpeedScooties?.map((scooty) => (
+                <ProductCard key={scooty._id} productDetails={scooty} />
+              ))}
+            </>
+          ) : (
+            <>
+              {lowSpeedScooties?.splice(0, 3).map((t) => (
+                <ProductCard key={t._id} productDetails={t} />
+              ))}
+            </>
+          )}
         </div>
         <Link
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%]  "
-          to="/all-products"
+          hidden={lowSpeedviewAll}
+          onClick={() => setLowSpeedViewAll(true)}
         >
           View All
         </Link>
@@ -133,13 +201,24 @@ const SomeProducts = () => {
       </h2>
       <div className="flex flex-col items-center justify-centers">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {scooties?.splice(0, 3).map((scooty) => (
-            <ProductCard key={scooty._id} productDetails={scooty} />
-          ))}
+          {bikeViewAll ? (
+            <>
+              {bike?.map((scooty) => (
+                <ProductCard key={scooty._id} productDetails={scooty} />
+              ))}
+            </>
+          ) : (
+            <>
+              {bike?.splice(0, 3).map((t) => (
+                <ProductCard key={t._id} productDetails={t} />
+              ))}
+            </>
+          )}
         </div>
         <Link
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%] "
-          to="/all-products"
+          hidden={bikeViewAll}
+          onClick={() => setBikeViewAll(true)}
         >
           View All
         </Link>
@@ -151,18 +230,31 @@ const SomeProducts = () => {
       </h2>
       <div className="flex flex-col items-center justify-centers">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {eriksha?.splice(0, 3).map((scooty) => (
-            <ProductCard key={scooty._id} productDetails={scooty} />
-          ))}
+          {eRikshaViewAll ? (
+            <>
+              {eriksha?.map((scooty) => (
+                <ProductCard key={scooty._id} productDetails={scooty} />
+              ))}
+            </>
+          ) : (
+            <>
+              {eriksha?.splice(0, 3).map((t) => (
+                <ProductCard key={t._id} productDetails={t} />
+              ))}
+            </>
+          )}
         </div>
         <Link
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%] "
-          to="/all-products"
+          hidden={eRikshaViewAll}
+          onClick={() => setERikshaViewAll(true)}
         >
           View All
         </Link>
       </div>
 
+      {/* <Savings /> */}
+      <ScooterComparison />
 
       <div className="sm:mt-[30%]">
         <FAQ />
