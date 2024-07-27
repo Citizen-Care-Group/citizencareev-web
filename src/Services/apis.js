@@ -8,4 +8,6 @@ export const endpoints = {
   GET_IN_TOUCH:BASE_URL+"/api/v1/get-in-touch",
   CONTACT_US:BASE_URL+"/api/v1/get-in-touch",
   SAVING:(distance, id) => BASE_URL+`/api/v1/saving/${id}?km=${distance}`,
+  GET_CAROUSAL2:BASE_URL+"/api/v1/slider-images",
+  GET_NEWS:BASE_URL+"/api/v1/reports"
 };
