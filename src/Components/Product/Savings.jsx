@@ -1,16 +1,59 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import scooty from "../../Images/Scooty/scooty.png";
 import { MdCurrencyRupee } from "react-icons/md";
+import { endpoints } from "../../Services/apis";
+import { apiConnector } from "../../Services/connector";
 
-const Savings = ({img, name, monthlySaving, annualSaving}) => {
+
+
+// debounce for slider
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}
+
+
+const Savings = ({img, pid, exPrice, ePrice}) => {
   const [distance, setDistance] = useState(50);
+  const [monthlySaving, setmonthlySaving] = useState(50);
+  const [annualSaving, setAnnualSaving] = useState(50);
+
+  // use effect for slider
+  useEffect(() => {
+    debouncedApiCall(distance);
+  }, [distance]);
+
+
+  const {SAVING} = endpoints;
+
 
   const handleSliderChange = (e) => {
-    setDistance(e.target.value);
+    setDistance(Number(e.target.value));
+
   };
 
-  const monthlySavings = Math.round((distance / 50) * 3528);
-  const annualSavings = Math.round(monthlySavings * 12);
+  // debounced api call
+  const debouncedApiCall = useRef(debounce(async(newValue) => {
+    try {
+      console.log(`API called with value: ${newValue}`);
+      const data = await apiConnector("GET", SAVING(newValue, pid));
+      console.log(data.data.data.annualSavings);
+      console.log(data.data.data.monthlySavings);
+      // console.log(data.data.monthlySavings);
+      setAnnualSaving(data.data.data.annualSavings);
+      setmonthlySaving(data.data.data.monthlySavings);
+      
+    } catch (error) {
+      console.error(error);
+      
+    }
+ 
+  }, 1000)).current;
+
 
   return (
     <>
@@ -63,13 +106,13 @@ const Savings = ({img, name, monthlySaving, annualSaving}) => {
               Monthly Savings
             </span>
             <div className="text-green-400 text-md lg:text-lg">
-              ₹{monthlySavings}
+              ₹{monthlySaving}
             </div>
           </div>
           <div>
             <span className="text-sm lg:text-lg">Annual Savings</span>
             <div className="text-green-400 text-md lg:text-lg">
-              ₹{annualSavings}
+              ₹{annualSaving}
             </div>
           </div>
         </div>
@@ -98,7 +141,7 @@ const Savings = ({img, name, monthlySaving, annualSaving}) => {
         <p className="">=</p>
         <p className="flex text-green-400">
           <MdCurrencyRupee size={25} className="" />
-          1,22,000
+          {exPrice}
         </p>
       </div>
       <div className="flex sm:text-sm justify-evenly p-4 sm:w-[40%] lg:w-[20%]">
@@ -106,7 +149,7 @@ const Savings = ({img, name, monthlySaving, annualSaving}) => {
         <p className="">=</p>
         <p className="flex text-green-400">
           <MdCurrencyRupee size={25} className="" />
-          1,22,000
+          {ePrice}
         </p>
       </div>
     </div>

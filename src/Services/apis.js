@@ -5,5 +5,6 @@ export const endpoints = {
   GET_PRODUCTS:BASE_URL+"/api/v1/products",
   GET_PRODUCT: (id) => BASE_URL + `/api/v1/products/${id}`,
   GET_IN_TOUCH:BASE_URL+"/api/v1/get-in-touch",
-  CONTACT_US:BASE_URL+"/api/v1/get-in-touch"
+  CONTACT_US:BASE_URL+"/api/v1/get-in-touch",
+  SAVING:(distance, id) => BASE_URL+`/api/v1/saving/${id}?km=${distance}`,
 };

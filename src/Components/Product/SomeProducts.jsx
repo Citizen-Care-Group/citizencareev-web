@@ -43,6 +43,9 @@ const SomeProducts = () => {
   const [scooties, setScooties] = useState(null);
   const [eriksha, setEriksha] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [viewAll, setViewAll] = useState(false);
+
+  const [test, setTest] = useState(null);
 
   useEffect(() => {
     const getAllScooties = async () => {
@@ -50,13 +53,15 @@ const SomeProducts = () => {
         setLoading(true);
         const response = await apiConnector("GET", GET_PRODUCTS);
         const erikshaData = await apiConnector("GET", GET_PRODUCTS);
+        const test = await apiConnector("GET", GET_PRODUCTS);
 
         // should have 4 api calls for high speed scooties, low speed scooties, Bikes and E-Riksha
         setScooties(response?.data?.data);
 
         // Dummy data for E-Riksha
         setEriksha(erikshaData?.data?.data);
-        console.log(response?.data?.data);
+        setTest(test?.data?.data);
+        console.log(test?.data?.data);
       } catch (error) {
         console.error("Error getting scooties:", error);
       } finally {
@@ -79,17 +84,30 @@ const SomeProducts = () => {
       </h2>
       <div className="flex flex-col items-center justify-centers">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          
-          {scooties?.splice(0, 3).map((scooty) => (
-            <ProductCard key={scooty._id} productDetails={scooty} />
+          {viewAll ? (
+            <>
+              {scooties?.map((scooty) => (
+                <ProductCard key={scooty._id} productDetails={scooty} />
+              ))}
+            </>
+          ) : null}
+
+          {test?.splice(0, 3).map((t) => (
+            <ProductCard key={t._id} productDetails={t} />
           ))}
+
+          {/* {scooties?.splice(0, 3).map((scooty) => (
+            <ProductCard key={scooty._id} productDetails={scooty} />
+          ))} */}
         </div>
-        <Link
+        <button
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%]  "
-          to="/all-products"
+          // to="/all-products"
+          hidden={viewAll}
+          onClick={() => setViewAll(true)}
         >
           View All
-        </Link>
+        </button>
       </div>
 
       {/* Low speed Scooties section */}
@@ -144,26 +162,10 @@ const SomeProducts = () => {
           View All
         </Link>
       </div>
-      
-      <div className="flex flex-col items-center justify-centers">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {eriksha?.splice(0, 3).map((scooty) => (
-            <ProductCard key={scooty._id} productDetails={scooty} />
-          ))}
-        </div>
-        <Link
-          className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%] "
-          to="/all-products"
-        >
-          View All
-        </Link>
-      </div>
 
-      <Savings />
-      
+
       <div className="sm:mt-[30%]">
-
-      <FAQ />
+        <FAQ />
       </div>
     </>
   );
