@@ -53,7 +53,7 @@ const Scooter = () => {
   if (!cardss.length) return <p>No scooties available.</p>;
 
   return (
-    <div className="w-[95%] gap-1 lg:gap-4 flex justify-center items-center lg:w-[55%] mx-auto mt-10">
+    <div className="w-[98%] gap-6 lg:gap-4 flex justify-center items-center lg:w-[55%] mx-auto mt-10">
       <button onClick={prevCard} className="text-slate-700 text-3xl rounded transition duration-300">
         <FaCaretLeft />
       </button>

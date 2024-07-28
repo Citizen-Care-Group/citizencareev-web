@@ -16,9 +16,9 @@ const ToggleEVSection2 = () => {
         className={` w-full lg:w-[55%] relative bg-cover bg-no-repeat `}
       >
         <img
-          className=" w-[90%] mx-auto  lg:w-[30vw] p-4"
+          className=" w-[90%] mx-auto lg:mt-16 lg:w-[30vw] p-4"
           src={eclips}
-          alt=""
+          alt="eclipse"
         />
         <div className=" flex items-center justify-center flex-col gap-4  absolute left-2 lg:left-[12rem] top-[3rem] lg:top-[11rem]">
           <h1 className=" text-2xl lg:text-4xl font-bold w-[60%] ">

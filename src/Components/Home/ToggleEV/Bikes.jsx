@@ -51,11 +51,11 @@ const Bikes = () => {
   if (!cardss.length) return <p>No scooties available.</p>;
 
   return (
-    <div className="w-[95%] gap-1 lg:gap-4 flex justify-center items-center lg:w-[55%] mx-auto mt-10">
+    <div className="w-[98%] gap-1 lg:gap-4 flex justify-center items-center lg:w-[55%] mx-auto mt-10">
       <button onClick={prevCard} className="text-slate-700 text-3xl rounded transition duration-300">
         <FaCaretLeft />
       </button>
-      <div className="  bg-customGrey text-white p-2 lg:p-4 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
+      <div className=" w-full bg-customGrey text-white p-4 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
         <img
           className="text-xl font-bold mb-4 w-full h-[30vh] lg:min-h-[37vh] "
           alt="current pic"
