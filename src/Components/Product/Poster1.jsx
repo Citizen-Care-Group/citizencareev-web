@@ -111,7 +111,7 @@ const Poster1 = () => {
         </span>
       </button>
 
-      <div className=" flex flex-col gap-2 lg:gap-8 absolute top-[30%] lg:top-[40%] right-[20%]  lg:right-[65%] md:right-[60%] md:top-[30%]">
+      <div className=" flex flex-col gap-2 lg:gap-8 absolute top-[40%] lg:top-[40%] right-[20%]  lg:right-[65%] md:right-[60%] md:top-[50%]">
         <div className="flex lg:w-[15rem] w-[8rem] md:w-[20rem] items-center lg:gap-8 gap-4">
           <img src={Logo} width={150} alt="ccg" />
           <p className="lg:text-sm text-sm font-mono text-white md:text-lg">Scooties & Bikes</p>
