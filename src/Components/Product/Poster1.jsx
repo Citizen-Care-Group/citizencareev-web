@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import scooty from "../../Images/Scooty/scooty.png";
 import Logo from "../../Images/Logo.png";
 import { Link } from "react-router-dom";
-import Slide1 from "../../Images/Slider/Slide1.jpg";
+import Slide1 from "../../Images/latest.png";
 import Slide2 from "../../Images/Slider/slide2.jpg";
 import Slide3 from "../../Images/Slider/slide3.jpg";
 import { BiArrowToRight } from "react-icons/bi";
@@ -64,7 +64,7 @@ const Poster1 = () => {
       </div>
       <button
         type="button"
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none hidden lg:block"
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 z-30  items-center justify-center h-full px-4 cursor-pointer group focus:outline-none hidden lg:block"
         onClick={prevSlide}
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
@@ -113,15 +113,17 @@ const Poster1 = () => {
 
       <div className=" flex flex-col gap-2 lg:gap-8 absolute top-[30%] lg:top-[40%] right-[20%]  lg:right-[65%] md:right-[60%] md:top-[30%]">
         <div className="flex lg:w-[15rem] w-[8rem] md:w-[20rem] items-center lg:gap-8 gap-4">
-          <img src={Logo} width={150} alt="ccg" />
-          <p className="lg:text-sm text-sm font-mono text-white md:text-lg">Scooties & Bikes</p>
+          <img src={Logo} width={170} alt="ccg" />
+          <p className="lg:text-m text-sm font-mono text-white md:text-lg">
+            Scooties & Bikes
+          </p>
         </div>
         <div className="flex ml-6 lg:ml-8 text-white flex-col gap-2 justify-around ">
           <h1 className=" text-4xl font-serif">Up to 10% off</h1>
           <h1 className=" text-4xl font-serif">Use Code EV10</h1>
-        <Link className="lg:mt-8 mt-10 ml-2 md:w-[10rem] flex w-[10rem] md:text-xl pb-2 items-center gap-2 border-b">
-             <p>Shop Now</p>  <BiArrowToRight />{" "}
-            </Link>
+          <Link className="lg:mt-8 mt-10 ml-2 md:w-[10rem] flex w-[10rem] md:text-xl pb-2 items-center gap-2 border-b">
+            <p>Shop Now</p> <BiArrowToRight />{" "}
+          </Link>
         </div>
       </div>
     </div>

@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { apiConnector } from "../../Services/connector";
-import { endpoints } from "../../Services/apis";
-import { useParams } from "react-router-dom";
-import FAQ from "../Common/FAQ";
+import { apiConnector } from "./Services/connector";
+import { endpoints } from "./Services/apis";
 import { IoIosSpeedometer } from "react-icons/io";
 import { TiBatteryCharge } from "react-icons/ti";
 import { GiCarWheel } from "react-icons/gi";
 import { ImPower } from "react-icons/im";
-import Savings from "../../Components/Product/Savings";
-import Compare from "../../Components/Product/Compare";
-import latest from "../../Images/latest.png";
+import Savings from "./Components/Product/Savings";
+import latest from "./Images/latest.png";
+import FAQ from "./Components/Common/FAQ";
 
 const { GET_PRODUCT } = endpoints;
 
 const ProductDescription = () => {
-  const { id } = useParams();
+  const id = "669cd3304482623b18581178";
   const [scooty, setScooty] = useState(null);
   const [loading, setLoading] = useState(false);
   //   console.log("id", id);
@@ -24,7 +22,7 @@ const ProductDescription = () => {
         setLoading(true);
         const response = await apiConnector("GET", GET_PRODUCT(id));
         setScooty(response?.data?.data);
-        console.log("product fetched", response?.data?.data);
+        console.log("product fetched", response?.data?.data?.images[0]);
       } catch (error) {
         console.error("Error fetching scooty details:", error);
       } finally {
@@ -33,8 +31,6 @@ const ProductDescription = () => {
     };
     fetchScooty();
   }, [id]);
-
-  
   if (loading) return <p>Loading...</p>;
   if (!scooty) return <p>No details available</p>;
   return (
@@ -78,10 +74,10 @@ const ProductDescription = () => {
           ePrice={scooty?.exShowroomPriceDetails[0]?.price}
         />
       </div>
-      <Compare />
       <FAQ />
     </>
   );
 };
 
 export default ProductDescription;
+

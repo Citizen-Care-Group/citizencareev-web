@@ -19,6 +19,15 @@ const ScooterComparison = () => {
     setCompareFirstProduct([product1, product2]);
   };
 
+  const downloadBrochure = () => {
+    const link = document.createElement("a");
+    link.href = "/Brochure.pdf"; // Adjust the path to your PDF file
+    link.setAttribute("download", "Brochure.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   // Defaul useEffect
   useEffect(() => {
     const getAllScooties = async () => {
@@ -183,7 +192,7 @@ const ScooterComparison = () => {
                         {scooter.features[1].text.replace("Speed: ", "")}
                       </span>
                     )}
-                    {idx === 2 && <span className="font-serif">80,000</span>}
+                    {idx === 2 && <span className="font-serif">70,000</span>}
                     {idx === 3 && <span className="font-serif">80,000</span>}
                     {idx === 4 && <span className="font-serif">80,000</span>}
                     {idx === 5 && <span className="font-serif">80,000</span>}
@@ -197,7 +206,7 @@ const ScooterComparison = () => {
         </table>
       </div>
       <div className="flex justify-center mt-8">
-        <button className="bg-black text-white py-2 px-4 rounded">
+        <button onClick={downloadBrochure} className="bg-black text-white py-2 px-4 rounded">
           Download Brochure
         </button>
       </div>
