@@ -51,43 +51,37 @@ const Bikes = () => {
   if (!cardss.length) return <p>No scooties available.</p>;
 
   return (
-    <div className=" max-w-full gap-1 lg:gap-4 flex justify-center items-center lg:max-w-[65%] mx-auto mt-10">
-      <button
-        onClick={prevCard}
-        className=" text-slate-700 text-3xl rounded  transition duration-300"
-      >
+    <div className="w-[95%] gap-1 lg:gap-4 flex justify-center items-center lg:w-[55%] mx-auto mt-10">
+      <button onClick={prevCard} className="text-slate-700 text-3xl rounded transition duration-300">
         <FaCaretLeft />
       </button>
-      <div className="bg-customGrey text-white p-2 lg:p-4 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
+      <div className="  bg-customGrey text-white p-2 lg:p-4 rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform">
         <img
-          className="text-xl font-bold mb-4 h-[50vh]"
+          className="text-xl font-bold mb-4 w-full h-[30vh] lg:min-h-[37vh] "
           alt="current pic"
-          src={cardss[currentCard]?.images?.[0] || scooty}
+          src={cardss[currentCard]?.images[0] || scooty}
         />
-        <div className=" flex justify-between items-center border-b">
-          <h2 className="text-xl font-bold ">{cardss[currentCard]?.name}</h2>
-          <p>₹ {cardss[currentCard]?.exShowroomPriceDetails[0]?.price} </p>
+        <div className="flex justify-between items-center border-b">
+          <h2 className="text-xl font-bold">{cardss[currentCard]?.name}</h2>
+          <p>₹ {cardss[currentCard]?.exShowroomPriceDetails[0]?.price}</p>
         </div>
-        <div className=" flex justify-center border-b my-2 py-2">
+        <div className="flex justify-center border-b my-2">
           <ul className="text-white list-disc mx-auto">
-            {cardss[currentCard]?.features.slice(0, 3).map((feature) => (
-              <li> {feature?.text} </li>
+            {cardss[currentCard]?.features?.slice(0, 3).map((feature, index) => (
+              <li key={index}>{feature?.text}</li>
             ))}
           </ul>
         </div>
-        <div className=" flex justify-center">
+        <div className="flex justify-center">
           <Link
-            className=" bg-white hover:bg-slate-200 transition-all duration-300 flex items-center justify-center gap-2 w-full py-2 px-1 rounded-md text-slate-700"
-            to={`/EV/${cardss[currentCard]?._id}`}
+            className="bg-white hover:bg-slate-200 transition-all duration-300 flex items-center justify-center gap-2 w-full py-2 px-1 rounded-md text-slate-700"
+            to={`/products/EV/${cardss[currentCard]?._id}`}
           >
-            <span>Explore </span> <FaChevronRight />
+            <span>Explore</span> <FaChevronRight />
           </Link>
         </div>
       </div>
-      <button
-        onClick={nextCard}
-        className="text-slate-700  py-2 text-3xl rounded "
-      >
+      <button onClick={nextCard} className="text-slate-700 py-2 text-3xl rounded">
         <FaCaretRight />
       </button>
     </div>
