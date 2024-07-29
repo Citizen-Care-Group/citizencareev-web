@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import FAQ from "../Common/FAQ";
 import { MdCurrencyRupee } from "react-icons/md";
 import ScooterComparison from "./Compare";
+import UrbanMobilityPosters from "../Home/UrbanMobilityPosters";
 
 // const { GET_PRODUCTS, GET_PRODUCTS_BY_TYPE } = endpoints;
 
@@ -208,9 +209,14 @@ const SomeProducts = () => {
         </Link>
       </div> */}
 
+      <div className="mt-10">
+
+      <UrbanMobilityPosters />
+      </div>
+
       <ScooterComparison />
 
-      <div className="sm:mt-[30%]">
+      <div className="">
         <FAQ />
       </div>
     </>
