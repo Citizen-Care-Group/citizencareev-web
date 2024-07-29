@@ -26,7 +26,7 @@ const ToggleEVSection2 = () => {
             <span className=" text-customGreen"> Citizen EV!</span>
           </h1>
           <Link
-            to="/all-products"
+            to="/products"
             className="flex w-[70%] lg:w-[40%]  justify-center group items-center gap-4 transition-all duration-200 rounded-md text-white font-bold py-4 bg-customGrey hover:bg-slate-800 "
           >
             Browse Products{" "}

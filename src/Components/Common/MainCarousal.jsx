@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Slide1 from "../../Images/s1.png";
 import Slide2 from "../../Images/s2.png";
 import Slide3 from "../../Images/s3.png";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
 
@@ -111,18 +112,18 @@ const MainCarousel = () => {
         </span>
       </button>
 
-      <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[15%]  lg:right-[42%]">
+      <div className=" flex gap-2 lg:gap-8 absolute top-[82%] lg:top-[80%] right-[15%]  lg:right-[40%]">
         <Link
           to="/contact-us"
-          className=" bg-black  text-white py-2 px-4 rounded-md flex jic"
+          className=" bg-black text-center items-center gap-1  text-white py-2 px-4 rounded-md flex jic"
         >
-          Get in touch{" "}
+          Get in touch{" "} <span className="bg-green-500 rounded-full  h-2 w-2"></span>
         </Link>
         <Link
           to="/get-in-touch"
-          className=" bg-customGreen  flex justify-center items-center gap-1 text-white py-2 px-2 rounded-md"
+          className=" bg-customGreen text-center items-center gap-1 flex justify-center text-white py-2 px-2 rounded-md"
         >
-          Book Test Ride{" "}
+          Book Test Ride{" "} <span><FaArrowRightLong size={12} color="white"/></span>
         </Link>
        
       </div>
