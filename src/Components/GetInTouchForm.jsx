@@ -59,12 +59,11 @@ const GetInTouchForm = () => {
   };
 
   return (
-    <div className="flex items-center flex-col ">
-      <div className="w-full flex justify-between  lg:flex-row   rounded">
+      <div className="w-full justify-between  lg:flex md:flex  rounded">
         <div className="w-full">
           <img src={DemoImage} className="h-[100%] w-[100%]" alt="contact us" />
         </div>
-        <div className=" flex w-full justify-center ">
+        <div className=" flex w-full justify-center">
           <form
             onSubmit={handleSubmit}
             className=" w-[90%] flex flex-col gap-3 lg:w-[80%] p-1 lg:p-4  h-full lg:h-[70vh] shadow-m"
@@ -202,7 +201,6 @@ const GetInTouchForm = () => {
           </form>
         </div>
       </div>
-    </div>
   );
 };
 

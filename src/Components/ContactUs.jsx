@@ -5,7 +5,6 @@ import { endpoints } from "../Services/apis";
 import { TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-
 const { GET_IN_TOUCH } = endpoints;
 const ContactUsForm = () => {
   const [loading, Setloading] = useState(false);
@@ -52,13 +51,11 @@ const ContactUsForm = () => {
   };
 
   return (
-    <div className="flex items-center flex-col  ">
-      {/* <h1 className=" text-2xl font-bold mt-2">Contact Us</h1> */}
-      <div className="w-full flex justify-between  lg:flex-row  gap-2  rounded ">
+      <div className="w-full  justify-between lg:flex md:flex   gap-2  rounded ">
         <div className="w-full">
           <img src={DemoImage} className="h-[100%] w-[100%]" alt="contact us" />
         </div>
-        <div className=" flex w-full justify-center">
+        <div className="flex w-full justify-center">
           <form
             onSubmit={handleSubmit}
             className=" w-[90%] flex flex-col gap-3 lg:w-[80%] p-1 lg:p-4  h-full lg:h-[70vh] shadow-m"
@@ -175,7 +172,6 @@ const ContactUsForm = () => {
               />
             </div>
             <div>
-            
               <TextField
                 onChange={handleChange}
                 multiline
@@ -191,7 +187,6 @@ const ContactUsForm = () => {
                 variant="outlined"
                 aria-required
                 className="w-full"
-               
               />
             </div>
             <div>
@@ -203,13 +198,15 @@ const ContactUsForm = () => {
               </button>
             </div>
             <div className="flex flex-col font-thin justify-center items-center text-xs">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem aspernatur sit dolorum.</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                aspernatur sit dolorum.
+              </p>
               <p>Lorem, ipsum dolor.</p>
             </div>
           </form>
         </div>
       </div>
-    </div>
   );
 };
 
