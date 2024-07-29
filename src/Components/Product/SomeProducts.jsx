@@ -45,7 +45,9 @@ const SomeProducts = () => {
   const [highSpeedViewAll, setHighSpeedViewAll] = useState(false);
   const [lowSpeedviewAll, setLowSpeedviewAll] = useState(false);
   const [bikeviewAll, setBikeViewAll] = useState(false);
+  const [eRikshaViewAll, setERikshaViewAll] = useState(false);
   const [bike, setBike] = useState(null);
+  const [eRiksha, setERiksha] = useState(null);
   const [test, setTest] = useState(null);
 
   useEffect(() => {
@@ -57,17 +59,19 @@ const SomeProducts = () => {
         const responses = await Promise.all([
           fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=SCOOTER&speedType=HIGH", { method: "GET", headers: { "Content-Type": "application/json" }}),
           fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=SCOOTER&speedType=LOW", { method: "GET", headers: { "Content-Type": "application/json" }}),
-          fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=BIKE&speedType=NA", { method: "GET", headers: { "Content-Type": "application/json" }})
+          fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=BIKE&speedType=NA", { method: "GET", headers: { "Content-Type": "application/json" }}),
+          fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=E-RIKSHA&speedType=NA", { method: "GET", headers: { "Content-Type": "application/json" }})
         ]);
 
         if (responses.some(response => !response.ok)) {
           throw new Error('Failed to fetch data');
         }
 
-        const [highData, lowData, bikeData] = await Promise.all(responses.map(res => res.json()));
+        const [highData, lowData, bikeData, eRikshaData] = await Promise.all(responses.map(res => res.json()));
         setHighSpeedScooties(highData?.data || []);
         setLowSpeedScooties(lowData?.data || []);
         setBike(bikeData?.data || []);
+        setERiksha(eRikshaData?.data || []);
 
         // Dummy data for E-Riksha
         setTest(test?.data?.data);
@@ -179,22 +183,22 @@ const SomeProducts = () => {
           View All
         </Link>
       </div>
-      {/* E-Riksha */}
 
-      {/* <h2 className="text-2xl mt-2 ml-2 lg:ml-10 font-sans flex items-center font-semibold lg:p-2">
+      {/* E-Riksha Section */}
+      <h2 className="text-2xl mt-2 ml-2 lg:ml-10 font-sans flex items-center font-semibold lg:p-2">
         E-Riksha
       </h2>
-      <div className="flex flex-col items-center justify-centers">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="overflow-hidden transition-all duration-500 ease-in-out flex flex-col items-center justify-centers">
+        <div className="overflow-hidden transition-all duration-500 ease-in-out grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {eRikshaViewAll ? (
             <>
-              {eriksha?.map((scooty) => (
+              {eRiksha?.map((scooty) => (
                 <ProductCard key={scooty._id} productDetails={scooty} />
               ))}
             </>
           ) : (
             <>
-              {eriksha?.splice(0, 3).map((t) => (
+              {eRiksha?.splice(0, 3).map((t) => (
                 <ProductCard key={t._id} productDetails={t} />
               ))}
             </>
@@ -202,13 +206,13 @@ const SomeProducts = () => {
         </div>
         <Link
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%] "
-          hidden={eRikshaViewAll}
+          hidden={eRiksha?.length <= 3 || eRikshaViewAll}
           onClick={() => setERikshaViewAll(true)}
         >
           View All
         </Link>
-      </div> */}
-
+      </div>
+      
       <div className="mt-10">
 
       <UrbanMobilityPosters />

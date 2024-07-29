@@ -119,7 +119,7 @@ const ScooterComparison = () => {
                     <img
                       src={firstScooter.images[0] || ""}
                       alt={firstScooter.name || ""}
-                      className="h-28 w-20 lg:w-32 object-fill  mb-2"
+                      className="h-28 w-20 lg:w-32 object-fill rounded-lg mb-2"
                     />
                     <select
                       value={firstScooter.name || ""}
@@ -144,7 +144,7 @@ const ScooterComparison = () => {
                     <img
                       src={secondScooter.images[0] || ""}
                       alt={secondScooter.name || ""}
-                      className="h-28 w-20 lg:w-32 object-fill mb-2"
+                      className="h-28 w-20 lg:w-32 object-fill mb-2 rounded-lg"
                     />
                     <select
                       value={secondScooter.name || ""}
