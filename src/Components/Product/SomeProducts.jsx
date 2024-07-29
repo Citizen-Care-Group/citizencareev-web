@@ -83,6 +83,7 @@ const SomeProducts = () => {
     };
 
     getAllScooties();
+    // eslint-disable-next-line
   }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll]);
 
   if (loading) return <p className="">Loading...</p>;
