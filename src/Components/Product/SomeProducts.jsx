@@ -8,8 +8,13 @@ import UrbanMobilityPosters from "../Home/UrbanMobilityPosters";
 // const { GET_PRODUCTS, GET_PRODUCTS_BY_TYPE } = endpoints;
 
 const ProductCard = ({ productDetails }) => {
-  const { name, tagLine, images, exShowroomPriceDetails } = productDetails;
+  const { name, tagLine, images, exShowroomPriceDetails, priceRange } = productDetails;
   console.log("scotiessss", productDetails._id);
+  const [minPrice, maxPrice] = priceRange.split('-').map(price => price.trim());
+
+  // Format the prices with the dollar sign
+  const formattedMinPrice = `₹${minPrice}`;
+  const formattedMaxPrice = `₹${maxPrice}`;
   return (
     <div className="p-4 overflow-hidden transition-all duration-500 ease-in-out flex sm:ml-0 flex-col lg:ml-[10%] mt-4 w-[100%] lg:w-[80%] items-start justify-between bg-white shadow-md rounded-lg">
       {/* Uncomment and use the image source once available */}
@@ -22,10 +27,10 @@ const ProductCard = ({ productDetails }) => {
         <h3 className="text-3xl font-sans font-semibold">{name}</h3>
         <p className="text-gray-500 font-sans text-xs">{tagLine}</p>
         <p className=" text-green-500 mt-10 flex text-sm font-mono">
-          <span>
+          {/* <span>
             <MdCurrencyRupee />
-          </span>{" "}
-          {exShowroomPriceDetails[0].price}
+          </span>{" "} */}
+          {formattedMinPrice} - {formattedMaxPrice}
         </p>
         <Link
           to={`EV/${productDetails._id}`}
@@ -68,6 +73,7 @@ const SomeProducts = () => {
         }
 
         const [highData, lowData, bikeData, eRikshaData] = await Promise.all(responses.map(res => res.json()));
+        console.log("Data fetched successfully:", highData?.data, lowData?.data, bikeData?.data, eRikshaData?.data);
         setHighSpeedScooties(highData?.data || []);
         setLowSpeedScooties(lowData?.data || []);
         setBike(bikeData?.data || []);
