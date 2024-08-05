@@ -1,9 +1,15 @@
 import React from "react";
 import Logo from "../../Images/Logo.png";
 import { Link } from "react-router-dom";
-import { CiFacebook } from "react-icons/ci";
-import { SlSocialYoutube } from "react-icons/sl";
-import { FaInstagram } from "react-icons/fa";
+import { SocialIcon } from 'react-social-icons/component'
+import 'react-social-icons/facebook'
+import 'react-social-icons/instagram'
+import 'react-social-icons/youtube'
+import 'react-social-icons/linkedin'
+import 'react-social-icons/twitter'
+
+
+
 
 const Footer = () => {
   const scooterFooterData = [
@@ -35,17 +41,20 @@ const Footer = () => {
   ];
   const Social = [
     {
-      logo: CiFacebook,
       nav: "https://www.facebook.com/Citizencareev",
     },
     {
-      logo: FaInstagram,
       nav: "https://www.instagram.com/citizenevmartofficial",
     },
     {
-      logo: SlSocialYoutube,
       nav: "https://www.youtube.com/@citizencare",
     },
+    {
+      nav: "https://www.linkedin.in",
+    },
+    {
+      nav: "https://www.twitter.com",
+    }
   ];
   // console.log(scooterFooterData);
   return (
@@ -63,7 +72,8 @@ const Footer = () => {
             {" "}
             {Social.map((item, index) => (
               <a key={index} href={item.nav} className="mx-2">
-                <item.logo className=" text-white" size={24} />
+                {/* <item.logo className=" text-white" size={24} /> */}
+                {<SocialIcon style={{}} url={item.nav} />}
               </a>
             ))}
           </div>
