@@ -89,7 +89,7 @@ const SomeProducts = () => {
     };
 
     getAllScooties();
-  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll]);
+  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll, eRikshaViewAll]);
 
   if (loading) return <p className="">Loading...</p>;
 
