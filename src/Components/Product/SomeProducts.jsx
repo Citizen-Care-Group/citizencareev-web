@@ -156,7 +156,7 @@ const SomeProducts = () => {
         </div>
         <Link
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%]  "
-          hidden={!lowSpeedScooties?.length > 3 || lowSpeedviewAll}
+          hidden={lowSpeedScooties?.length > 3 || lowSpeedviewAll}
           onClick={() => setLowSpeedviewAll(true)}
         >
           View All
