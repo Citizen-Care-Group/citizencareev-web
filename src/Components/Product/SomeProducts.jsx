@@ -125,7 +125,7 @@ const SomeProducts = () => {
         <button
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%]  "
           // to="/all-products"
-          hidden={highSpeedViewAll}
+          hidden={highSpeedScooties?.length > 3 || highSpeedViewAll}
           onClick={() => {
             setHighSpeedViewAll(true);
           }}
@@ -156,7 +156,7 @@ const SomeProducts = () => {
         </div>
         <Link
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%]  "
-          hidden={lowSpeedScooties?.length <= 3 || lowSpeedviewAll}
+          hidden={lowSpeedScooties?.length > 3 || lowSpeedviewAll}
           onClick={() => setLowSpeedviewAll(true)}
         >
           View All
@@ -183,7 +183,7 @@ const SomeProducts = () => {
         </div>
         <Link
           className="bg-customGreen hover:scale-95 transition-all duration-300 rounded-md text-xl font-bold my-3 py-2 px-4 text-white md:w-auto text-center w-[50%] "
-          hidden={bike?.length <= 3 || bikeviewAll}
+          hidden={bike?.length > 3 || bikeviewAll}
           onClick={() => setBikeViewAll(true)}
         >
           View All
