@@ -1,15 +1,12 @@
 import React from "react";
 import Logo from "../../Images/Logo.png";
 import { Link } from "react-router-dom";
-import { SocialIcon } from 'react-social-icons/component'
-import 'react-social-icons/facebook'
-import 'react-social-icons/instagram'
-import 'react-social-icons/youtube'
-import 'react-social-icons/linkedin'
-import 'react-social-icons/twitter'
-
-
-
+import { SocialIcon } from "react-social-icons/component";
+import "react-social-icons/facebook";
+import "react-social-icons/instagram";
+import "react-social-icons/youtube";
+import "react-social-icons/linkedin";
+import "react-social-icons/twitter";
 
 const Footer = () => {
   const scooterFooterData = [
@@ -54,7 +51,7 @@ const Footer = () => {
     },
     {
       nav: "https://www.twitter.com",
-    }
+    },
   ];
   // console.log(scooterFooterData);
   return (
@@ -68,13 +65,11 @@ const Footer = () => {
             levels increasing to dangerous levels, an alternative to internal
             combustion engines is the need of the hour.
           </p>
-          <div className=" flex my-4 lg:my-8 items-center">
-            {" "}
+          <div className="flex my-4 lg:my-8 items-center">
             {Social.map((item, index) => (
-              <a key={index} href={item.nav} className="mx-2">
-                {/* <item.logo className=" text-white" size={24} /> */}
-                {<SocialIcon style={{}} url={item.nav} />}
-              </a>
+              <div key={index} className="mx-2">
+                <SocialIcon url={item.nav} style={{}} />
+              </div>
             ))}
           </div>
         </div>

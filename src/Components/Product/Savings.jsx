@@ -3,8 +3,8 @@ import scooty from "../../Images/Scooty/scooty.png";
 import { MdCurrencyRupee } from "react-icons/md";
 import { endpoints } from "../../Services/apis";
 import { apiConnector } from "../../Services/connector";
-import BGBlack from "../../Images/UrbanMobility/BGBlack.png";
-import { ImGithub } from "react-icons/im";
+// import BGBlack from "../../Images/UrbanMobility/BGBlack.png";
+// import { ImGithub } from "react-icons/im";
 
 // debounce for slider
 function debounce(func, wait) {
@@ -25,6 +25,7 @@ const Savings = ({ img, pid, exPrice, ePrice }) => {
   // use effect for slider
   useEffect(() => {
     debouncedApiCall(distance);
+    // eslint-disable-next-line
   }, [distance]);
 
   const { SAVING } = endpoints;
@@ -115,7 +116,7 @@ const Savings = ({ img, pid, exPrice, ePrice }) => {
         {/* Scooty image */}
         <div className="">
           <img
-            src={img||scooty}
+            src={img || scooty}
             height={400}
             width={400}
             className="w-50 h-50"
@@ -129,10 +130,10 @@ const Savings = ({ img, pid, exPrice, ePrice }) => {
       <div className=" w-full lg:w-[70%] flex justify-between">
         <div className="flex text-m justify-evenly p-4 sm:w-[50%] lg:w-[25%]">
           <p>Ex-showroom MRP =</p>
-          
+
           <p className="flex text-green-400">
             <MdCurrencyRupee size={25} className="" />
-            {exPrice||ePrice}
+            {exPrice || ePrice}
           </p>
         </div>
         <div className="flex text-m  justify-evenly p-4 sm:w-[40%] lg:w-[20%]">

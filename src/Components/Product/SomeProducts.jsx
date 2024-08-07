@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FAQ from "../Common/FAQ";
-import { MdCurrencyRupee } from "react-icons/md";
+// import { MdCurrencyRupee } from "react-icons/md";
 import ScooterComparison from "./Compare";
 import UrbanMobilityPosters from "../Home/UrbanMobilityPosters";
 
 // const { GET_PRODUCTS, GET_PRODUCTS_BY_TYPE } = endpoints;
 
 const ProductCard = ({ productDetails }) => {
-  const { name, tagLine, images, exShowroomPriceDetails, priceRange } = productDetails;
+  const { name, tagLine, images,  priceRange } = productDetails;
   console.log("scotiessss", productDetails._id);
   const [minPrice, maxPrice] = priceRange.split('-').map(price => price.trim());
 
@@ -89,7 +89,12 @@ const SomeProducts = () => {
     };
 
     getAllScooties();
+
+    // eslint-disable-next-line
+  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll]);
+
   }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll, eRikshaViewAll]);
+
 
   if (loading) return <p className="">Loading...</p>;
 

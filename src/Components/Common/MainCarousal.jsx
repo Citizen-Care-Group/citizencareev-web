@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-// import Slide1 from "../../Images/Slider/Slide1.jpg";
-// import Slide2 from "../../Images/Slider/slide2.jpg";
-// import Slide3 from "../../Images/Slider/slide3.jpg";
 import Slide1 from "../../Images/s1.png";
 import Slide2 from "../../Images/s2.png";
 import Slide3 from "../../Images/s3.png";
+import Slide4 from "../../Images/Slider/Slide1.jpg";
+import Slide5 from "../../Images/Slider/slide2.jpg";
+import Slide6 from "../../Images/Slider/slide3.jpg";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
 
-const images = [Slide1, Slide2, Slide3];
+const images = [Slide1, Slide2, Slide3,Slide4,Slide5,Slide6];
 
 const MainCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
