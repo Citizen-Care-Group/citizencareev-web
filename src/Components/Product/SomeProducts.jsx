@@ -59,7 +59,7 @@ const SomeProducts = () => {
     const getAllScooties = async () => {
       try {
         setLoading(true);
-
+  
         // Fetching High speed scooties data
         const responses = await Promise.all([
           fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=SCOOTER&speedType=HIGH", { method: "GET", headers: { "Content-Type": "application/json" }}),
@@ -67,35 +67,38 @@ const SomeProducts = () => {
           fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=BIKE&speedType=NA", { method: "GET", headers: { "Content-Type": "application/json" }}),
           fetch("https://citizencareev-server-prod-negd46p6yq-el.a.run.app/api/v1/products?type=E-RIKSHA&speedType=NA", { method: "GET", headers: { "Content-Type": "application/json" }})
         ]);
-
+  
         if (responses.some(response => !response.ok)) {
           throw new Error('Failed to fetch data');
         }
-
+  
         const [highData, lowData, bikeData, eRikshaData] = await Promise.all(responses.map(res => res.json()));
         console.log("Data fetched successfully:", highData?.data, lowData?.data, bikeData?.data, eRikshaData?.data);
         setHighSpeedScooties(highData?.data || []);
         setLowSpeedScooties(lowData?.data || []);
         setBike(bikeData?.data || []);
         setERiksha(eRikshaData?.data || []);
-
-        // Dummy data for E-Riksha
-        setTest(test?.data?.data);
+  
+        // Dummy data for E-Riksha (assuming 'test' is already defined somewhere)
+        if (test?.data?.data) {
+          setTest(test.data.data);
+        }
       } catch (error) {
         console.error("Error getting scooties:", error);
       } finally {
         setLoading(false);
       }
     };
-
+  
     getAllScooties();
     // eslint-disable-next-line
-  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll]);
-  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll, eRikshaViewAll];
-
+  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll, eRikshaViewAll]);
+  
   if (loading) return <p className="">Loading...</p>;
-
-  // if (!scooties) return <p className="">No Scooties available</p>;
+  
+  // Uncomment and use this if statement if you want to handle a case where no scooties data is available
+  // if (!highSpeedScooties.length && !lowSpeedScooties.length && !bike.length && !eRiksha.length) return <p className="">No Scooties available</p>;
+  
 
   return (
     // <p>hiii</p>
