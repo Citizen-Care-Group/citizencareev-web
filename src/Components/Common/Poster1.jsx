@@ -1,6 +1,5 @@
 // eslint-disable-next-line
 import React, { useState, useEffect } from "react";
-import scooty from "../../Images/Scooty/scooty.png";
 import Logo from "../../Images/Logo.png";
 import { Link } from "react-router-dom";
 import Slide1 from "../../Images/latest.png";

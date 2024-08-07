@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const leftNavData = [
     { data: "Our Products", nav: "/products" },
-    // { data: "Brochure", nav: "/get-in-touch" },
+    { data: "Spare Parts", nav: "/spare-parts" },
     { data: "Dealer form", nav: "https://forms.gle/kFtXRRwornhbuY7T6" }, // Replace with your actual Google Form link
   ];
   const rightNavData = [

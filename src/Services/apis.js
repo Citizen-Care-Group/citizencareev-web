@@ -1,4 +1,4 @@
-// const BASE_URL = "http://localhost:5000";
+// const BASE_URL = "http://localhost:50`00";
 const BASE_URL = "https://citizencareev-server-prod-negd46p6yq-el.a.run.app";
 
 export const endpoints = {
@@ -9,5 +9,6 @@ export const endpoints = {
   CONTACT_US:BASE_URL+"/api/v1/get-in-touch",
   SAVING:(distance, id) => BASE_URL+`/api/v1/saving/${id}?km=${distance}`,
   GET_CAROUSAL2:BASE_URL+"/api/v1/slider-images",
-  GET_NEWS:BASE_URL+"/api/v1/reports"
+  GET_NEWS:BASE_URL+"/api/v1/reports",
+  GET_PARTS:BASE_URL+"/api/v1/parts"
 };

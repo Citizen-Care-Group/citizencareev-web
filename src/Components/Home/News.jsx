@@ -9,7 +9,7 @@ const News = () => {
   const [News, SetNews] = useState();
 
   useEffect(() => {
-    const getAllScooties = async () => {
+    const getAllNews = async () => {
       try {
         setLoading(true);
         const response = await apiConnector("GET", GET_NEWS);
@@ -23,10 +23,10 @@ const News = () => {
       }
     };
 
-    getAllScooties();
+    getAllNews();
   }, []);
 
-  // const news = [
+  // const News = [
   //   {
   //     photo: "image",
   //     headline: "this is the new",
