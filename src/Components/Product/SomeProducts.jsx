@@ -91,7 +91,7 @@ const SomeProducts = () => {
     getAllScooties();
     // eslint-disable-next-line
   }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll]);
-  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll, eRikshaViewAll]);
+  }, [highSpeedViewAll, lowSpeedviewAll, bikeviewAll, eRikshaViewAll];
 
   if (loading) return <p className="">Loading...</p>;
 
